@@ -7,8 +7,8 @@
 - #### [Azure Devops Agent Kurulumu](azure-devops-agent.md)
 ### B
 ### C
-- #### [CI süreci](CI-surecleri.md)
-- #### [CD süreci](CD-surecleri.md)
+- #### [CI Süreci](CI-surecleri.md)
+- #### [CD Süreci](CD-surecleri.md)
 ### D
 ### E
 ### F
@@ -23,6 +23,7 @@
 ### P
 ### R
 ### S
+- #### [Sürüm Denetimi - Version Control](surum-denetimi-(version-control).md)
 ### T
 ### U
 ### V
