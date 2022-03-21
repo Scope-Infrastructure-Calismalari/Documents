@@ -23,6 +23,7 @@
 ### P
 ### R
 ### S
+- #### [SonarQube - LDAP Entegrasyonu](sonarqube-ldap-entegrasyonu.md)
 - #### [Sürüm Denetimi - Version Control](surum-denetimi-(version-control).md)
 ### T
 ### U
