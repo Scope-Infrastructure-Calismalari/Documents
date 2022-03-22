@@ -3,8 +3,9 @@
 ## 1-) Konuya felsefik bir yaklaşım:
 
 ### Riemann Toplamı
-
-![image-1](images/CI-surecleri/image-1.png)
+<p align="center">
+  <img src="images/CI-surecleri/image-1.png">
+</p>
 
 Yukarıdaki şeklin alanını nasıl hesaplayabiliriz?
 
@@ -12,7 +13,9 @@ Hayat, problemler, projeler kenarı köşesi belli olmayan, eğik-bükük şekil
 
 *"Madem dörtgenlerin alanlarını hesaplamayı biliyoruz, o zaman düzgün olmayan bu şekli, dörtgen parçalardan oluşan bir bütün olarak düşünelim ve bu dörtgenlerin alanlarını toplayarak tüm şeklin alanının yaklaşık değerini bulalım"* diye düşünüp, bu düşünceden temel alan bir formül üretmiş.
 
-![image-2](images/CI-surecleri/image-2.png)
+<p align="center">
+  <img src="images/CI-surecleri/image-2.png">
+</p>
 
 Bugün yaygın olan yazılım geliştirme metodolojilerinin mantığı Riemann’ın mantığına benziyor. Uygulamaları özelliklere bölüp, belli zaman dilimleri içerisinde bu özellikleri tamamlayarak projeleri inşa ediyoruz.
 
@@ -26,8 +29,9 @@ Tüm bunlar yazılım projelerinin başarıyla tamamlanmasını, projelerin ür�
 Parçalara bölünüp bu şekilde geliştirilen bir projeye sürekli olarak eklemeler yapmak, bir veya birden fazla kişi tarafından yazılmış kodların birleştirilmesi, yeni bir versiyonun başarılı bir şekilde üretilmesi de başlı başına bir iş haline gelmekte çünkü yeni yazılan kodların bütünleştirmeden sonra diğer kodlara zarar vermemesi, tüm kodların hala çalışabilir durumda olması gerekiyor. Bu yüzden *"CI - Continuous Integration - Sürekli Bütünleştirme"* bir ismi ve üzerinde düşünülmeyi hak eden bir süreç haline geliyor.
 
 ## CI - Continuous Integration - Sürekli Bütünleştirme nedir?
-
-![image-3](images/CI-surecleri/image-3.png)
+<p align="center">
+  <img src="images/CI-surecleri/image-3.png">
+</p>
 
 Continuous Integration (CI) is the process of automating the build and testing of code every time a team member commits changes to version control. CI encourages developers to share their code and unit tests by merging their changes into a shared version control repository after every small task completion. Committing code triggers an automated build system to grab the latest code from the shared repository and to build, test, and validate the full main, or trunk, branch.
 
@@ -73,9 +77,10 @@ Here are key differences between development using CI or without CI.
 
 ## Difference between Compilation and Continuous Integration
 
-| ![image-4](images/CI-surecleri/image-4.png) |
-|:---:|
-| *Activities in Continuous Integration* |
+<p align="center">
+    <img src="images/CI-surecleri/image-4.png" alt="Activities in Continuous Integration">
+</p>
+<h4 align="center">Activities in Continuous Integration<br><br></h1>
 
 While compilation only compiles a code, CI does the following activities
 
@@ -103,9 +108,10 @@ Compilation is the process the computer takes to convert a high-level programmin
 
 ### How do I build?
 
-| ![image-5](images/CI-surecleri/image-5.png) |
-|:---:|
-| *CI process* |
+<p align="center">
+    <img src="images/CI-surecleri/image-5.png" alt="CI process">
+</p>
+<h4 align="center">CI process<br><br></h1>
 
 - Ideally, the build should come from the command line and should not depend on IDE.
 - The build should happen continuously using a dedicated Cl server, not a cron job.
@@ -114,8 +120,10 @@ Compilation is the process the computer takes to convert a high-level programmin
 - Identify key metrics and track them visually. More importantly, act on them immediately
 
 ## What do you need to conduct CI process?
-
-![image-6](images/CI-surecleri/image-6.png)
+<p align="center">
+    <img src="images/CI-surecleri/image-6.png" alt="CI process">
+</p>
+<h4 align="center">CI process<br><br></h1>
 
 Here, are the key elements which you need to perfom the entire CI process:
 - **Version Control System (VCS):** It offers a reliable method to centralize and preserve changes made to your project over time.
@@ -124,10 +132,10 @@ Here, are the key elements which you need to perfom the entire CI process:
 - **Tools:** If you select a self-hosted variant, you will need to install one of the many CI tools like Jenkins, TeamCity, Bamboo, GitLab, etc.
 
 ## How Continuous integration work?
-
-| ![image-7](images/CI-surecleri/image-7.png) |
-|:---:|
-| *Example of Continuous Integration* |
+<p align="center">
+    <img src="images/CI-surecleri/image-7.png" alt="Example of Continuous Integration">
+</p>
+<h4 align="center">Example of Continuous Integration<br><br></h1>
 
 You are surely aware of the old phone Nokia. Nokia used to implement a procedure called nightly build. After multiple commits from diverse developers during the day, the software built every night. Since the software was built only once in a day, it's a huge pain to isolate, identify, and fix the errors in a large codebase.
 
@@ -188,17 +196,23 @@ Here, are cons/drawbacks of Continuous Integration process:
 Here, are some most essential CI/CD tools:
 
 ### Jenkins:
-![image-8](images/CI-surecleri/image-8.png)
+<p align="center">
+  <img src="images/CI-surecleri/image-8.png">
+</p>
 
 Jenkins is an open-source continuous integration software. It is written using the Java programming language. It facilitates real-time testing and reporting on isolated changes in a more massive codebase. This software helps developers to quickly find and solve defects in their codebase & automate testing of their builds.
 
 ### Bamboo:
-![image-9](images/CI-surecleri/image-9.png)
+<p align="center">
+  <img src="images/CI-surecleri/image-9.png">
+</p>
 
 Bamboo is a continuous integration build server that performs - automatic build, test, and releases in a single place. It works seamlessly with JIRA software and Bitbucket. Bamboo supports many languages and technologies such as CodeDeply, Ducker, Git, SVN, Mercurial, AWS, and Amazon S3 buckets.
 
 ### TeamCity:
-![image-10](images/CI-surecleri/image-10.png)
+<p align="center">
+  <img src="images/CI-surecleri/image-10.png">
+</p>
 
 TeamCity is a Continuous Integration server that supports many powerful features. It maintains a CI server healthy and stable even when no builds are running. It provides better code quality for any project
 
@@ -235,26 +249,25 @@ CI/CD pipeline introduces automation and continuous monitoring throughout the li
 - **Continuous delivery** is a software engineering method in which a team develops software products in a short cycle. It ensures that software can be easily released at any time.
 - **Continuous deployment** is a software engineering process in which product functionalities are delivered using automatic deployment. It helps testers to validate whether the codebase changes are correct, and it is stable or not.
 
-
 In this CI/CD Pipeline tutorial, you will learn:
-Stages of a CI/CD pipeline
-Example of CI/CD Pipeline
-CI/CD pipeline Best Practices
-Advantages of CI/CD pipelines
-Important CI/CD tools
-Why Does the CI/CD Pipeline Matter for IT Leaders?
-Ci/CD Pipeline KPI
+- [Stages of a CI-CD pipeline](#stages-of-a-ci-cd-pipeline)
+- [Example of CI-CD Pipeline](#example-of-ci-cd-pipeline)
+- [CI-CD pipeline Best Practices](#ci-cd-pipeline-best-practices)
+- [Advantages of CI-CD pipelines](#advantages-of-ci-cd-pipelines)
+- [Important CI-CD tools](#important-ci-cd-tools)
+- [Why Does the CI-CD Pipeline Matter for IT Leaders?](#why-does-the-ci-cd-pipeline-matter-for-it-leaders)
+- [CI-CD Pipeline KPI](#ci-cd-pipeline-kpi)
 
-## Stages of a CI/CD pipeline
+## Stages of a CI-CD pipeline
 A CI/CD pipeline is a runnable specification of the steps that any developer should perform to
 deliver a new version of any software. Failure in each and every stage triggers a notification via email, Slack, or other communication platforms. It enables responsible developers to know about the important issues.
 
 Here are the important Stages of CI/CD pipeline:
 
-| ![image-11](images/CI-surecleri/image-11.png) |
-|:---:|
-| Stages of CI/CD pipeline |
-
+<p align="center">
+    <img src="images/CI-surecleri/image-11.png" alt="Stages of CI/CD pipeline">
+</p>
+<h4 align="center">Stages of CI/CD pipeline<br><br></h1>
 
 ### Source Stage
 In the source stage, CI/CD pipeline is triggered by a code repository. Any change in the program
@@ -274,7 +287,7 @@ Test Stage includes the execution of automated tests to validate the correctness
 ### Deploy Stage
 This is the last stage where your product goes live. Once the build has successfully passed through all the required test scenarios, it is ready to deploy to live server.
 
-## Example of CI/CD Pipeline
+## Example of CI-CD Pipeline
 Here is example of CI/CD pipeline:
 - **Source Code Control:** Host code on GitHub as a private repository. This will help you to integrate your application with major services and software.
 - **Continuous integration:** Use continuous integration and delivery platform CircleCI and commit every code. When the changes notify, this tool will pull the code available in GitHub and process to build and run the test.
@@ -282,7 +295,7 @@ Here is example of CI/CD pipeline:
 Deploy to production: You have to reuse continuous integration steps for deploying code to
 UAT.
 
-## CI/CD pipeline Best Practices
+## CI-CD pipeline Best Practices
 Here is a CI/CD pipeline best practices:
 - Write up the current development process therefore, you can know the procedures that require to change and one that can be easily automated.
 - Start off with a small proof of project before going ahead and complete whole development process at once.
@@ -293,7 +306,7 @@ Here is a CI/CD pipeline best practices:
 - Peer code review each pull request to solve a problem in a collaborative manner.
 - You have to define success metrics before you start the transition to CD automation. This will help you to consistently analyze your software, developing progress help refining where needed.
 
-## Advantages of CI/CD pipelines
+## Advantages of CI-CD pipelines
 Here are the pros/ benefits of CI/CD Pipeline:
 - Builds and testing can be easily performed manually.
 - It can improve the consistency and quality of code.
@@ -311,9 +324,13 @@ Here are the pros/ benefits of CI/CD Pipeline:
 - It enables developers to know which changes in the build can turn to the brokerage and to avoid them in the future.
 - The automated tests, along with few manual test runs, help to fix any issues that may arise.
 
-## Important CI/CD tools
+## Important CI-CD tools
 Here are the important CI/CD tools:
 ### Jenkins
+<p align="center">
+  <img src="images/CI-surecleri/image-12.png">
+</p>
+
 Jenkins is an open-source Continuous Integration server that helps to achieve the Continuous Integration process (and not only) in an automated fashion. Jenkins is free and is entirely written in Java. Jenkins is a widely used application around the world that has around 300k installations and growing day by day.
 
 **Features:**
@@ -324,7 +341,12 @@ Jenkins is an open-source Continuous Integration server that helps to achieve th
 Link: https://www.jenkins.io/download/
 
 ### Bambo
+<p align="center">
+  <img src="images/CI-surecleri/image-13.png">
+</p>
+
 Bamboo is a continuous integration build server that performs - automatic build, test, and releases in a single place. It works seamlessly with JIRA software and Bitbucket. 
+
 **Features:**
 - Run parallel batch tests
 - Setting up Bamboo is pretty simple
@@ -333,6 +355,10 @@ Bamboo is a continuous integration build server that performs - automatic build,
 Link: https://www.atlassian.com/software/bamboo
 
 ### CircleCI
+<p align="center">
+  <img src="images/CI-surecleri/image-14.png">
+</p>
+
 Circle CI is a flexible CI tool that runs in any environment like a cross-platform mobile app, Python API server, or Docker cluster. This tool reduces bugs and improves the quality of the application.
 
 **Features:**
@@ -342,7 +368,7 @@ Circle CI is a flexible CI tool that runs in any environment like a cross-platfo
 - Automatically cancel any queued or running builds when a newer build is triggered.
 Link: https://circleci.com/
 
-## Why Does the CI/CD Pipeline Matter for IT Leaders?
+## Why Does the CI-CD Pipeline Matter for IT Leaders?
 - CI/CD pipeline can improve reliability.
 - It makes IT team more attractive to developers.
 - CI/CD pipeline helps IT leaders, to pull code from version control and execute software build.
@@ -352,7 +378,7 @@ Link: https://circleci.com/
 - Providing log data and alerts on the delivery state.
 - It enables programmers to verify code changes before they move forward, reducing the chances of defects ending up in production.
 
-## CI/CD Pipeline KPI
+## CI-CD Pipeline KPI
 - **Cycle or Deployment Time:** Cycle time is the time taken to go from the build stage to production. You can obtain average life cycle time by measuring the development process phases. This metric will give insight into bottlenecks in your process and the overall speed of development time.
 
 - **Development Frequency:** Development frequency allows you to analyse bottlenecks you find during automation. The more frequent smaller releases reduce the risk of defects and fix them when found. Such a metric is an overall measure of your team efficiency.
