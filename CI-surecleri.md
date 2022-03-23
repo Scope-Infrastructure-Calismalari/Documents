@@ -43,8 +43,12 @@ Teams use build definitions to ensure that every commit to the main branch trigg
 
 CI is a standard feature in modern DevOps platforms. GitHub users can start implementing CI today through GitHub Actions. Azure DevOps users can get started with Azure Pipelines.
 
+## Farklı kaynak - What is Continuous Integration?
+Continuous Integration is a software development method where team members integrate their work at least once a day. In this method, every integration is checked by an automated build to detect errors. This concept was first introduced over two decades ago to avoid "integration hell," which happens when integration is put off till the end of a project.
+
+In Continuous Integration after a code commit, the software is built and tested immediately. In a large project with many developers, commits are made many times during a day. With each commit code is built and tested. If the test is passed, build is tested for deployment. If the deployment is a success, the code is pushed to Production. This commit, build, test, and deploy is a continuous process, and hence the name continuous integration/deployment.
+
 In this CI tutorial, you will learn:
-- [What is Continuous Integration?](#what-is-continuous-integration)
 - [Development without CI vs. Development with CI](#development-without-ci-vs-development-with-ci)
 - [Difference between Compilation and Continuous Integration](#difference-between-compilation-and-continuous-integration)
 - [What do you need to conduct CI process?](#what-do-you-need-to-conduct-ci-process)
@@ -54,12 +58,6 @@ In this CI tutorial, you will learn:
 - [Best practices of using CI](#best-practices-of-using-ci)
 - [Disadvantages of CI](#disadvantages-of-ci)
 - [Tools for CI process](#tools-for-ci-process)
-- [Disadvantages of CI](#disadvantages-of-ci)
-
-## Farklı kaynak - What is Continuous Integration?
-Continuous Integration is a software development method where team members integrate their work at least once a day. In this method, every integration is checked by an automated build to detect errors. This concept was first introduced over two decades ago to avoid "integration hell," which happens when integration is put off till the end of a project.
-
-In Continuous Integration after a code commit, the software is built and tested immediately. In a large project with many developers, commits are made many times during a day. With each commit code is built and tested. If the test is passed, build is tested for deployment. If the deployment is a success, the code is pushed to Production. This commit, build, test, and deploy is a continuous process, and hence the name continuous integration/deployment.
 
 ## Development without CI vs. Development with CI
 
@@ -82,7 +80,7 @@ Here are key differences between development using CI or without CI.
 </p>
 <h4 align="center">Activities in Continuous Integration<br><br></h1>
 
-While compilation only compiles a code, CI does the following activities
+While compilation only compiles a code, CI does the following activities:
 
 ### DB integration:
 - Ensure DB and code in sync
@@ -123,7 +121,6 @@ Compilation is the process the computer takes to convert a high-level programmin
 <p align="center">
     <img src="images/CI-surecleri/image-6.png" alt="CI process">
 </p>
-<h4 align="center">CI process<br><br></h1>
 
 Here, are the key elements which you need to perfom the entire CI process:
 - **Version Control System (VCS):** It offers a reliable method to centralize and preserve changes made to your project over time.
@@ -338,6 +335,7 @@ Jenkins is an open-source Continuous Integration server that helps to achieve th
 - Automated build and test process, saving timing, and reducing defects.
 - The code is deployed after every successful build and test.
 - The development cycle is fast.
+
 Link: https://www.jenkins.io/download/
 
 ### Bambo
@@ -352,6 +350,7 @@ Bamboo is a continuous integration build server that performs - automatic build,
 - Setting up Bamboo is pretty simple
 - Per-environment permissions feature allows developers and QA to deploy to their environments
 - Built-in Git branching and workflows. It automatically merges the branches.
+
 Link: https://www.atlassian.com/software/bamboo
 
 ### CircleCI
@@ -366,6 +365,7 @@ Circle CI is a flexible CI tool that runs in any environment like a cross-platfo
 - Supports many languages including C++, JavaScript, NET, PHP, Python, and Ruby
 - Support for Docker lets you configure a customized environment.
 - Automatically cancel any queued or running builds when a newer build is triggered.
+
 Link: https://circleci.com/
 
 ## Why Does the CI-CD Pipeline Matter for IT Leaders?
