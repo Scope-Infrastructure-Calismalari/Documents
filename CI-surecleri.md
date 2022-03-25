@@ -765,13 +765,27 @@ This is a step-by-step guide to using Azure Pipelines to build a sample applicat
 **Bu çalışma ile "example-repo-ci-cd-java-pipeline" repo'su için oluşturulan, SCOPE-CICD havuzundaki agent'lar tarafından derlenen, main branch'ine her commit geldiğinde otomatik olarak tetiklenen, YAML formatındaki "azure-pipelines" dosyası ile konfigüre edilen bir Build Pipeline oluşturmuş olduk. CI adımı için olan bu pipeline'ı CD adımı için olan Release Pipeline takip etmektedir. İkisinin birleştirilmesi ve uç uca çalışması ile CI/CD süreci tamamlanmaktadır.**
 
 
------------------------------------------------------------------------------------
 
-## Dokümanlaştırılacak notlar:
+## Neden Pipeline as Code Yaklasimi Uygulanmali?
 
-S*r ve H*m projelerinde "Pipeline as Code" yaklaşımı ile geliştirme yapılmakta. 
+Azure DevOps platformu bize iki çeşit pipeline oluşturma seçeneği sunmakta; klasik editör ile yaml. Yeni pipeline oluşturmak istediğimizde Azure DevOps platformu bizi varsayılan olarak yaml ile pipeline oluşturmaya yönlendirse de aşağıdaki görselde de belirtilen "Use the classic editor" butonu ile klasik pipeline yapısında kurulum yapılabilinir.
 
-"Pipeline as Code" yaklaşımı bize pipeline'ları da versiyonlamamızı sağlayacak. Yani iki yıl öncesinin kod'larını ve versiyonları görebileceğimiz gibi o kod'ların pipeline versiyonlarını da görebileceğiz. Kod ile pipeline'lar eşleşmiş olacak, "şu zamanın artifact'ini oluştur" denildiği zaman o versiyon için çalışmış olan pipeline dosyasını kullanıp artifact'i oluşturbilecek hale gelinmesini sağlar.
+<p align="center">
+  <img src="images/CI-surecleri/image-34.png">
+</p>
 
-(Global'de devam eden süreçte developer'lar kendi geliştirdikleri kodun pipeline'ını da yazmaktalar, CI süreçlerinin yönetimi developer'lardadır)
+Template ile devam edilebildiği gibi "Empty job" ile de devam edilebilinir ve istenilen daha spesifik task'lar seçilip sıralanarak pipeline oluşturulabilinir.
 
+<p align="center">
+  <img src="images/CI-surecleri/image-35.png">
+</p>
+
+Aşağıdaki görselde de görülen şekilde agent'a "+" butonu ile yeni slot açılıp arama penceresi ile ihtiyaca uygun task'lar eklenip pipeline oluşturulabilinir. 
+
+<p align="center">
+  <img src="images/CI-surecleri/image-36.png">
+</p>
+
+**"Pipeline as Code"** yaklaşımının klasik pipeline oluşturulma sisteminden en büyük farkı bu yaklaşımın bize pipeline'ları da versiyonlamamızı sağlayacak olmasıdır. Repo'nun root ('/') klasöründe yer alan "azure-pipelines.yml" da bir dosya olduğu için Git yapısı altında versiyonlanarak tutulmakta, yapılan geliştirmeler, eklemeler ve çıkarmalar saklanmaktadır. Yani iki yıl öncesinin kod'larını ve versiyonları görebileceğimiz gibi o kod'ların pipeline versiyonlarını da görebileceğiz. **Kod ile pipeline'lar eşleşmiş olacak**, *"Şu zamanın artifact'ini oluşturmalıyız"* denildiği zaman kodların o versiyonu için oluşturulup çalıştırılmış olan pipeline dosyasını kullanıp yine aynı artifact'i oluşturbilecek imkana sahip olunmuş olacaktır.
+
+*NOT: Global'de devam eden süreçte developer'lar kendi geliştirdikleri kodun pipeline'ını da kendileri yazmaktadırlar, CI süreçlerinin yönetimi developer'lar yapmakta, kodları ile birlikte pipeline yapısını da idame etmektedirler.*
