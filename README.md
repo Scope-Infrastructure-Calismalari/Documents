@@ -8,7 +8,9 @@
 ### <center>B</center>
 ### <center>C</center>
 - #### [CD Süreci](CD-surecleri.md)
+- #### [CD Toolsets](CD-toolsets.md)
 - #### [CI Süreci](CI-surecleri.md)
+- #### [CI Toolsets](CI-toolsets.md)
 - #### [Citrix Workspace Installation on Ubuntu](Citrix-Workspace-and-Ubuntu.md)
 ### <center>D</center>
 ### <center>E</center>
