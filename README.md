@@ -1,32 +1,34 @@
-# Warning: The notes are just templates, needs huge improvements. I'm working on it.
+# Our notes and documents
 
-## My personal notes
+### **Warning: The notes are just templates and needs huge improvements, we know it, we're working on it.**
 
-### A
+### <center>A</center>
 - #### [Argo ve ArgoCD](argo-ve-argo-cd.md)
 - #### [Azure Devops Agent Kurulumu](azure-devops-agent.md)
-### B
-### C
-- #### [CI Süreci](CI-surecleri.md)
+### <center>B</center>
+### <center>C</center>
 - #### [CD Süreci](CD-surecleri.md)
-### D
-### E
-### F
-### G
-### H
-### J
-### K
-### L
-### M
-### N
-### O
-### P
-### R
-### S
+- #### [CI Süreci](CI-surecleri.md)
+- #### [Citrix Workspace Installation on Ubuntu](Citrix-Workspace-and-Ubuntu.md)
+### <center>D</center>
+### <center>E</center>
+### <center>F</center>
+### <center>G</center>
+- #### [GitOps](GitOps.md)
+### <center>H</center>
+### <center>J</center>
+### <center>K</center>
+### <center>L</center>
+### <center>M</center>
+### <center>N</center>
+### <center>O</center>
+### <center>P</center>
+### <center>R</center>
+### <center>S</center>
 - #### [SonarQube - LDAP Entegrasyonu](sonarqube-ldap-entegrasyonu.md)
 - #### [Sürüm Denetimi - Version Control](surum-denetimi-(version-control).md)
-### T
-### U
-### V
-### Y
-### Z
+### <center>T</center>
+### <center>U</center>
+### <center>V</center>
+### <center>Y</center>
+### <center>X</center>
