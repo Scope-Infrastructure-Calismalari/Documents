@@ -2,7 +2,7 @@
 ## This document shows you how to install Citrix Receiver to you Ubuntu OS and configure to connect the X network
 
 ## Steps:
- 1. Go to [ Install, Uninstall, and Update ](https://docs.citrix.com/en-us/citrix-workspace-app-for-linux/install.html) page of Citrix.
+ 1. Go to [Install, Uninstall, and Update](https://docs.citrix.com/en-us/citrix-workspace-app-for-linux/install.html) page of Citrix Workspace.
 
  2. Under the **Manual install** section, you will see *Download the following packages from the Citrix Downloads page.* Click on it.
 
