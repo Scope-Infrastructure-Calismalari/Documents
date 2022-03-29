@@ -1,19 +1,5 @@
-# Argo Workflow
-Documentation: https://argoproj.github.io/argo-workflows/ \
-
-## 1 - Argo Workflows nedir?
-Nedir?
-
-## 2 - Neden Argo Workflows?
-NEden?
-
-## 3 - Kurulum ve ilk başlangıç(Quick Start)
-https://argoproj.github.io/argo-workflows/quick-start/
-
-
-## 4 - Örnekler
-Bağlantı: https://github.com/argoproj/argo-workflows/blob/master/examples/README.md
-
-
 # Argo CD
-Documentation: https://argo-cd.readthedocs.io/en/stable/
+[GitHub Homepage](https://argoproj.github.io/cd/) | [Alternative Homepage](https://argo-cd.readthedocs.io/en/stable/) | [Argo CD Example Apps](https://github.com/Scope-Infrastructure-Calismalari/argocd-example-apps)
+
+Argo Cd is a declerative, GitOps continuous delivery tool for Kubernetes.
+

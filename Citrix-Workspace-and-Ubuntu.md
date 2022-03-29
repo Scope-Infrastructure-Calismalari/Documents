@@ -16,9 +16,15 @@
 
     **Do not forget to change the package version of icaclient. If your default download folder is different from '~/Downloads/' you also need to change path of the file.**
 
- 6. We need to use web browser to make a bridge between Citrix Workspace and X network machine. To use Firefox for this purpose, we need also share Firefox certificates with Citrix Workspace. In order to make it, use the following command:<br>
+ 6. We need to use web browser to make a bridge between Citrix Workspace and XXXXXXX network machine. To use Firefox for this purpose, we need also share Firefox certificates with Citrix Workspace. In order to make it, use the following command:<br>
  `sudo ln -s /usr/share/ca-certificates/mozilla/* /opt/Citrix/ICAClient/keystore/cacerts`
 
- 7. That's all for setup processes. Go to X network and enjoy to use it on Ubuntu OS :)
+ 7. After connecting the XXXXXXX network and logging in and then entering the OTP message, the system want to download a file like below. Double click on it and Citrix Workspace will be automatically opened.
 
- ## Note: "ctxusb" is not installed because machines of X network does not support the USB connection.
+   <p align="center">
+      <img src="images/Citrix-Workspace-and-Ubuntu/image-1.png">
+   </p>
+
+ 8. That's all for setup processes. Go to X network and enjoy to use it on Ubuntu OS :)
+
+ ### Note: "ctxusb" is not installed because machines of X network does not support the USB connection.

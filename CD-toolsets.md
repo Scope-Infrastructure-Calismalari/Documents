@@ -4,7 +4,7 @@
 Uses GitOps Flow, pull-based tool<br>
 Runs inside k8s cluster and sync the changes from the git repository to the cluster.
 
-[Homepage](https://argoproj.github.io/cd/) | [Alternative Home Page](https://argo-cd.readthedocs.io/en/stable/)
+[GitHub Homepage](https://argoproj.github.io/cd/) | [Alternative Homepage](https://argo-cd.readthedocs.io/en/stable/)
 
 <p align="center">
   <img src="images/CD-toolsets/gif-1.gif">
