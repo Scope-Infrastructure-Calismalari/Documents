@@ -3,7 +3,7 @@
 ### **Warning: The notes are just templates and needs huge improvements, we know it, we're working on it.**
 
 ### <center>A</center>
-- #### [Argo ve ArgoCD](argo-ve-argo-cd.md)
+- #### [Argo-CD](Argo-CD.md)
 - #### [Azure Devops Agent Kurulumu](azure-devops-agent.md)
 ### <center>B</center>
 ### <center>C</center>
