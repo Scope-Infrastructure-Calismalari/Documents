@@ -78,7 +78,7 @@ Here are key differences between development using CI or without CI.
 <p align="center">
     <img src="images/CI-surecleri/image-4.png" alt="Activities in Continuous Integration">
 </p>
-<h4 align="center">Activities in Continuous Integration<br><br></h1>
+<h4 align="center">Activities in Continuous Integration<br><br></h4>
 
 While compilation only compiles a code, CI does the following activities:
 
@@ -109,7 +109,7 @@ Compilation is the process the computer takes to convert a high-level programmin
 <p align="center">
     <img src="images/CI-surecleri/image-5.png" alt="CI process">
 </p>
-<h4 align="center">CI process<br><br></h1>
+<h4 align="center">CI process<br><br></h4>
 
 - Ideally, the build should come from the command line and should not depend on IDE.
 - The build should happen continuously using a dedicated Cl server, not a cron job.
@@ -132,7 +132,7 @@ Here, are the key elements which you need to perfom the entire CI process:
 <p align="center">
     <img src="images/CI-surecleri/image-7.png" alt="Example of Continuous Integration">
 </p>
-<h4 align="center">Example of Continuous Integration<br><br></h1>
+<h4 align="center">Example of Continuous Integration<br><br></h4>
 
 You are surely aware of the old phone Nokia. Nokia used to implement a procedure called nightly build. After multiple commits from diverse developers during the day, the software built every night. Since the software was built only once in a day, it's a huge pain to isolate, identify, and fix the errors in a large codebase.
 
@@ -264,7 +264,7 @@ Here are the important Stages of CI/CD pipeline:
 <p align="center">
     <img src="images/CI-surecleri/image-11.png" alt="Stages of CI/CD pipeline">
 </p>
-<h4 align="center">Stages of CI/CD pipeline<br><br></h1>
+<h4 align="center">Stages of CI/CD pipeline<br><br></h4>
 
 ### Source Stage
 In the source stage, CI/CD pipeline is triggered by a code repository. Any change in the program

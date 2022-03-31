@@ -1,12 +1,19 @@
 # Argo CD
 [GitHub Homepage](https://argoproj.github.io/cd/) | [Alternative Homepage](https://argo-cd.readthedocs.io/en/stable/) | [Argo CD Example Apps](https://github.com/Scope-Infrastructure-Calismalari/argocd-example-apps)
 
-Argo Cd is a declerative, GitOps continuous delivery tool for Kubernetes.
+## Argo CD Nedir?
 
-## Explanation - Ne işe yarar?
+*"Argo Cd is a declerative, **GitOps** continuous delivery tool for Kubernetes."*
 
+**Dikkat! GitOps aracı olan Argo CD'nin ne olduğunu okumadan önce eğer GitOps'un ne olduğunu bilmiyorsanız ilk olarak [GitOps yazımızı](GitOps.md) okumanızı rica ederiz, sonrasında bu yazı daha anlaşılır olacaktır.**
 
-## Kurulum
+Yazının devamında daha detaylı olarak anlatılacak olan Argo CD mimarisinin bir örneğini aşağıdaki görselde görebilmekteyiz. GitOps yazısını okuduktan sonra "GitHub Repo" ifadesinin neden mimaride yer aldığını, alması gerektiğini hemen anlayabilmiş olmalıyız.
+
+<p align="center">
+ <img src="images/Argo-CD/image-4.png">
+</p>
+
+## Kurulum (Yerel makina)
 
 Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes cluster'ına kurulmuş ve orada çalıştırılmıştır.
 
