@@ -1,36 +1,31 @@
-# Our notes and documents
+# Cloud-Native Technologies
 
-### **Warning: The notes are just templates and needs huge improvements, we know it, we're working on it.**
+## CI/CD
 
-### <center>A</center>
-- #### [Argo-CD](Argo-CD.md)
-- #### [Azure Devops Agent Kurulumu](azure-devops-agent.md)
-### <center>B</center>
-### <center>C</center>
-- #### [CD Süreci](CD-surecleri.md)
-- #### [CD Toolsets](CD-toolsets.md)
-- #### [CI Süreci](CI-surecleri.md)
-- #### [CI Toolsets](CI-toolsets.md)
-- #### [Citrix Workspace Installation on Ubuntu](Citrix-Workspace-and-Ubuntu.md)
-### <center>D</center>
-### <center>E</center>
-### <center>F</center>
-### <center>G</center>
-- #### [GitOps](GitOps.md)
-### <center>H</center>
-### <center>J</center>
-### <center>K</center>
-### <center>L</center>
-### <center>M</center>
-### <center>N</center>
-### <center>O</center>
-### <center>P</center>
-### <center>R</center>
-### <center>S</center>
-- #### [SonarQube - LDAP Entegrasyonu](sonarqube-ldap-entegrasyonu.md)
+- ### CI
+  - #### [CI Süreci](CI-surecleri.md)
+  - #### [CI Toolsets](CI-toolsets.md)
+  - #### [Azure Devops Agent Kurulumu](azure-devops-agent.md)
+
+- ### CD
+  - #### [CD Süreci](CD-surecleri.md)
+  - #### [CD Toolsets](CD-toolsets.md)
+  - #### [Argo-CD](Argo-CD.md)
+  - #### [GitOps](GitOps.md)
+  
+-------------------------------------------------------------------------------
+
+## Programming
 - #### [Sürüm Denetimi - Version Control](surum-denetimi-(version-control).md)
-### <center>T</center>
-### <center>U</center>
-### <center>V</center>
-### <center>Y</center>
-### <center>X</center>
+
+-------------------------------------------------------------------------------
+
+## Static Code Analysis
+- #### [SonarQube - LDAP Entegrasyonu](sonarqube-ldap-entegrasyonu.md)
+
+-------------------------------------------------------------------------------
+
+## Infrastructure
+- #### [Citrix Workspace Installation on Ubuntu](Citrix-Workspace-and-Ubuntu.md)
+
+-------------------------------------------------------------------------------
