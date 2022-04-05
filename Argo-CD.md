@@ -169,20 +169,21 @@ Eğer büyük resme bakarsak, aslında bir tarafta Git repo'muz, diğer tarafta 
 
 <p align="center"><img src="images/Argo-CD/image-16.png"></p>
 
+*Notların çıkarılmasına kaynaklık eden YouTube videosuna (ArgoCD Tutorial for Beginners | GitOps CD for Kubernetes) [buradan](https://www.youtube.com/watch?v=MeU5_k9ssrs&ab_channel=TechWorldwithNana) ulaşabilirsiniz.*
 
-<br>
-<br>
-<br>
 
-Notların çıkarılmasına kaynaklık eden YouTube videosuna (ArgoCD Tutorial for Beginners | GitOps CD for Kubernetes) [buradan](https://www.youtube.com/watch?v=MeU5_k9ssrs&ab_channel=TechWorldwithNana) ulaşabilirsiniz.
 
 ## Kurulum (Yerel makina)
+
+*Not: Bu uygulama kişisel bilgisayar üzerine yüklenmiş olan Ubuntu 20.04 LTS üzerine kurulmuştur. Farklı işletim sistemleri için bazı adımlar/komutlar değişecektir fakat kurulumun ana mantığu/iskeleti burada tanımlandığı gibidir· Kurulum adımlarına Argo CD'nin [Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/) bağlantısından da ulaşabilirsiniz.*
 
 Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes cluster'ına kurulmuş ve orada çalıştırılmıştır.
 
 1. Minikube uygulaması başlatılır:
 
     `minikube start`
+
+    *Eğer minikube kurulu değilse diğer adımlara geçmeden önce [buradaki](https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/) adımları takip edip kurulumu tamamlamalısınız*
 
 2. Argo CD uygulaması için namespace tanımlanır:
 
@@ -305,14 +306,12 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
 
 10. Tebrikler. Kurulum işlemini başarıyla tamamladınız. Bir sonraki adımda bu boş ekranı uygulamalarla doldurup biraz hareketlendireceğiz :)
 
-<br>
-<br>
-<br>
 
-## Nedir, Ne İşe Yarar, Kullanım (Detaylı Anlatım)
 
-<br>
-<br>
-<br>
+## Kurulum (Bulut)
+
+
 
 ## Kullanım Örneği
+
+
