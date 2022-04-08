@@ -1,6 +1,6 @@
 # CI - Continuous Integration - Sürekli Bütünleştirme
 
-## 1-) Konuya felsefik bir yaklaşım:
+## Konuya felsefik bir yaklaşım:
 
 ### Riemann Toplamı
 <p align="center">
@@ -28,7 +28,10 @@ Tüm bunlar yazılım projelerinin başarıyla tamamlanmasını, projelerin ür�
 ### Esas kısım:
 Parçalara bölünüp bu şekilde geliştirilen bir projeye sürekli olarak eklemeler yapmak, bir veya birden fazla kişi tarafından yazılmış kodların birleştirilmesi, yeni bir versiyonun başarılı bir şekilde üretilmesi de başlı başına bir iş haline gelmekte çünkü yeni yazılan kodların bütünleştirmeden sonra diğer kodlara zarar vermemesi, tüm kodların hala çalışabilir durumda olması gerekiyor. Bu yüzden *"CI - Continuous Integration - Sürekli Bütünleştirme"* bir ismi ve üzerinde düşünülmeyi hak eden bir süreç haline geliyor.
 
-## CI - Continuous Integration - Sürekli Bütünleştirme nedir?
+
+<br>
+
+## CI Nedir?
 <p align="center">
   <img src="images/CI-surecleri/image-3.png">
 </p>
@@ -42,6 +45,8 @@ CI keeps the main branch up-to-date. Teams can leverage modern version control s
 Teams use build definitions to ensure that every commit to the main branch triggers the automated build and testing processes. Implementing CI this way ensures bugs are caught earlier in the development cycle, which makes them less expensive to fix. Automated tests run for every build to ensure builds maintain a consistent quality.
 
 CI is a standard feature in modern DevOps platforms. GitHub users can start implementing CI today through GitHub Actions. Azure DevOps users can get started with Azure Pipelines.
+
+
 
 ## Farklı kaynak - What is Continuous Integration?
 Continuous Integration is a software development method where team members integrate their work at least once a day. In this method, every integration is checked by an automated build to detect errors. This concept was first introduced over two decades ago to avoid "integration hell," which happens when integration is put off till the end of a project.
@@ -59,8 +64,10 @@ In this CI tutorial, you will learn:
 - [Disadvantages of CI](#disadvantages-of-ci)
 - [Tools for CI process](#tools-for-ci-process)
 
-## Development without CI vs. Development with CI
 
+<br>
+
+## Development without CI vs. Development with CI
 Here are key differences between development using CI or without CI.
 
 | Development without CI         | Development with CI |
@@ -73,8 +80,10 @@ Here are key differences between development using CI or without CI.
 | Issue raised are harder to fix | Find and fix problems faster and more efficiently. |
 | Poor project visibility        | Better project visibility |
 
-## Difference between Compilation and Continuous Integration
 
+<br>
+
+## Difference between Compilation and Continuous Integration
 <p align="center">
     <img src="images/CI-surecleri/image-4.png" alt="Activities in Continuous Integration">
 </p>
@@ -105,7 +114,6 @@ Compilation is the process the computer takes to convert a high-level programmin
 - Every time a dependency changes
 
 ### How do I build?
-
 <p align="center">
     <img src="images/CI-surecleri/image-5.png" alt="CI process">
 </p>
@@ -116,6 +124,9 @@ Compilation is the process the computer takes to convert a high-level programmin
 - CI built should be triggered on every check-in and not just at midnight
 - The build should provide immediate feedback and Require no developer effort•
 - Identify key metrics and track them visually. More importantly, act on them immediately
+
+
+<br>
 
 ## What do you need to conduct CI process?
 <p align="center">
@@ -128,6 +139,8 @@ Here, are the key elements which you need to perfom the entire CI process:
 - **Hosted CI Tool Solutions:** To avoid servers or virtual machines, you should go for hosted CI tool solutions. This tool helps in the maintenance of the whole process and offers easier scalability.
 - **Tools:** If you select a self-hosted variant, you will need to install one of the many CI tools like Jenkins, TeamCity, Bamboo, GitLab, etc.
 
+
+
 ## How Continuous integration work?
 <p align="center">
     <img src="images/CI-surecleri/image-7.png" alt="Example of Continuous Integration">
@@ -138,8 +151,10 @@ You are surely aware of the old phone Nokia. Nokia used to implement a procedure
 
 Later, they adopted the Continuous Integration approach. The software was built and tested as soon as a developer committed code. If any error is detected, the respective developer can quickly fix the defect.
 
-## Features of CI
 
+<br>
+
+## Features of CI
 Here, are important features and benefits of Continuous Integration:
 - Allows you to maintain just a single source repository
 - You can test the clone of the production CI environment
@@ -147,8 +162,10 @@ Here, are important features and benefits of Continuous Integration:
 - One of the advantages of continuous integration is Constant availability of a current build
 - The complete process of build and testing and deployment should be visible to all the stack holders.
 
-## Why Use CI
 
+<br>
+
+## Why Use CI
 Here are important reasons for using Continuous Integration:
 - Helps you to build better quality software
 - CI process helps to scale up headcount and delivery output of engineering teams.
@@ -160,8 +177,10 @@ Here are important reasons for using Continuous Integration:
 - Immediate feedback when issue arrives
 - Avoid last-minute confusion at release date and timing
 
-## Best practices of using CI
 
+<br>
+
+## Best practices of using CI
 - Here, are some important best practices while implementing
 - Commit Early and Commit Often never Commit Broken Code
 - Fix build failures immediately
@@ -178,8 +197,10 @@ Here are important reasons for using Continuous Integration:
 - Automate the build and test everyone
 - Keep the build fast with automated deployment
 
-## Disadvantages of CI
 
+<br>
+
+## Disadvantages of CI
 Here, are cons/drawbacks of Continuous Integration process:
 - Initial setup time and training is required to get acquainted with Cl server
 - Development of suitable test procedures is essential
@@ -188,8 +209,10 @@ Here, are cons/drawbacks of Continuous Integration process:
 - Requires additional servers and environments
 - Waiting times may occur when multiple developers want to integrate their code around the same time
 
-## Tools for CI process
 
+<br>
+
+## Tools for CI process
 Here, are some most essential CI/CD tools:
 
 ### Jenkins:
@@ -213,6 +236,9 @@ Bamboo is a continuous integration build server that performs - automatic build,
 
 TeamCity is a Continuous Integration server that supports many powerful features. It maintains a CI server healthy and stable even when no builds are running. It provides better code quality for any project
 
+
+<br>
+
 ## Summary:
 - Continuous Integration definition: Continuous integration is a software development method
 - where members of the team can integrate their work at least once a day
@@ -234,12 +260,20 @@ TeamCity is a Continuous Integration server that supports many powerful features
 
 -----------------------------------------------------------------------------------
 
+
+
+
+
 # CI/CD Pipeline: Learn with Example
+
 ## What is a CI/CD pipeline?
 A CI/CD pipeline automates the process of software delivery. It builds code, runs tests, and helps you to safely deploy a new version of the software. CI/CD pipeline reduces manual errors,
 provides feedback to developers, and allows fast product iterations.
 
 CI/CD pipeline introduces automation and continuous monitoring throughout the lifecycle of a software product. It involves from the integration and testing phase to delivery and deployment. These connected practices are referred as CI/CD pipeline.
+
+
+<br>
 
 ## What is Continuous Integration, Continuous Delivery, and Continuous Deployment?
 - **Continuous integration** is a software development method where members of the team can integrate their work at least once a day. In this method, every integration is checked by an automated build to search the error.
@@ -254,6 +288,9 @@ In this CI/CD Pipeline tutorial, you will learn:
 - [Important CI-CD tools](#important-ci-cd-tools)
 - [Why Does the CI-CD Pipeline Matter for IT Leaders?](#why-does-the-ci-cd-pipeline-matter-for-it-leaders)
 - [CI-CD Pipeline KPI](#ci-cd-pipeline-kpi)
+
+
+<br>
 
 ## Stages of a CI-CD pipeline
 A CI/CD pipeline is a runnable specification of the steps that any developer should perform to
@@ -284,6 +321,9 @@ Test Stage includes the execution of automated tests to validate the correctness
 ### Deploy Stage
 This is the last stage where your product goes live. Once the build has successfully passed through all the required test scenarios, it is ready to deploy to live server.
 
+
+<br>
+
 ## Example of CI-CD Pipeline
 Here is example of CI/CD pipeline:
 - **Source Code Control:** Host code on GitHub as a private repository. This will help you to integrate your application with major services and software.
@@ -291,6 +331,9 @@ Here is example of CI/CD pipeline:
 - **Deploy code to UAT:** Configure CitcleCI to deploy your code to AWS UAT server.
 Deploy to production: You have to reuse continuous integration steps for deploying code to
 UAT.
+
+
+<br>
 
 ## CI-CD pipeline Best Practices
 Here is a CI/CD pipeline best practices:
@@ -302,6 +345,9 @@ Here is a CI/CD pipeline best practices:
 - Setup a better code hub to continuously check the quality of your code by running the standard set of tests against every branch.
 - Peer code review each pull request to solve a problem in a collaborative manner.
 - You have to define success metrics before you start the transition to CD automation. This will help you to consistently analyze your software, developing progress help refining where needed.
+
+
+<br>
 
 ## Advantages of CI-CD pipelines
 Here are the pros/ benefits of CI/CD Pipeline:
@@ -320,6 +366,9 @@ Here are the pros/ benefits of CI/CD Pipeline:
 - Improves communications between organization employees.
 - It enables developers to know which changes in the build can turn to the brokerage and to avoid them in the future.
 - The automated tests, along with few manual test runs, help to fix any issues that may arise.
+
+
+<br>
 
 ## Important CI-CD tools
 Here are the important CI/CD tools:
@@ -368,6 +417,9 @@ Circle CI is a flexible CI tool that runs in any environment like a cross-platfo
 
 Link: https://circleci.com/
 
+
+<br>
+
 ## Why Does the CI-CD Pipeline Matter for IT Leaders?
 - CI/CD pipeline can improve reliability.
 - It makes IT team more attractive to developers.
@@ -377,6 +429,9 @@ Link: https://circleci.com/
 - Project managers can publish push application components to services like web services, database services, API services, etc.
 - Providing log data and alerts on the delivery state.
 - It enables programmers to verify code changes before they move forward, reducing the chances of defects ending up in production.
+
+
+<br>
 
 ## CI-CD Pipeline KPI
 - **Cycle or Deployment Time:** Cycle time is the time taken to go from the build stage to production. You can obtain average life cycle time by measuring the development process phases. This metric will give insight into bottlenecks in your process and the overall speed of development time.
@@ -408,14 +463,25 @@ Link: https://circleci.com/
 
 -----------------------------------------------------------------------------------
 
+
+
+
+
 # Continuous Integration vs Continuous Delivery vs Continuous Deployment
+
 ## What is Continuous Integration?
 Continuous integration is a software development method where members of the team can integrate their work at least once a day. In this method, every integration is checked by an automated build to search the error.
 
 In continuous integration after a code commit, the software is built and tested immediately. In a large project with many developers, commits are made many times during a day. With each commit code is built and tested. If the test is passed, build is tested for Deployment. If the Deployment is a success, the code is pushed to production. This commit, build, test, and deploy is a continuous process, and hence the name continuous integration/deployment.
 
+
+<br>
+
 ## What is Continuous Delivery?
 Continuous delivery is a software engineering method in which a team develops software products in a short cycle. It ensures that software can be easily released at any time. The main aim of continuous delivery is to build, test, and release software with good speed and frequency. It helps you to reduce the cost time and risk of delivering changes by allowing for frequent updates in production.
+
+
+<br>
 
 ## What is Continuous Deployment
 Continuous deployment is a software engineering process in which product functionalities are delivered using automatic deployment. It helps testers to validate whether the codebase changes are correct and stable or not.
@@ -427,6 +493,9 @@ The team can achieve continuous deployment by relying on infrastructure that aut
 - CI is performed immediately after the developer checks- in. While in Continuous Delivery, developed code is continuously delivered until the programmer considers it is ready to ship and in Continuous Deployment, developers deploy the code directly to the production stage when it is developed.
 - CI uses unit tests on the contrary Continuous Delivery uses business logic tests. In Continuous Deployment any testing strategy is used.
 - CI refers to the versioning of source code whereas Continuous Delivery refers to the logical evolution of CI and Continuous Deployment refers to automated implementations of the source code.
+
+
+<br>
 
 ## Difference between CI vs CD vs CD
 Here is an important difference between CI vs CD vs CD.
@@ -442,6 +511,8 @@ Here is an important difference between CI vs CD vs CD.
 | Development team sends continuous code merging requests even when the testing  process is running. | You deliver code for review that can be batched for release. | Deploy code using an automated process. |
 | You require a continuous integration server to monitor the main repository. | You require a strong foundation in continuous integration. | You need a good testing culture. |
 
+
+<br>
 
 ## Advantages of Continuous Integration
 Here are the pros/benefits of continuous integration:
@@ -463,6 +534,9 @@ Here are the pros/benefits of continuous integration:
 - It is relatively easy to find a history of the software build.
 - CI offers code stability.
 
+
+<br>
+
 ## Advantages of Continuous Delivery
 Here are the pros/benefits of continuous delivery:
 - Automate the software release process for making delivery more efficient, rapid, and secure.
@@ -472,6 +546,9 @@ Here are the pros/benefits of continuous delivery:
 - It ensures the software is always ready to go to production.
 - You can release software more frequently, which helps you to get fast feedback from your clients.
 - There is less pressure on decisions for small changes.
+
+
+<br>
 
 ## Advantages of Continuous Deployment
 Here are the pros/benefits of continuous Deployment:
@@ -483,6 +560,9 @@ Here are the pros/benefits of continuous Deployment:
 - You can connect your existing DevOps tools and scripts into a proper workflow.
 - CD enables you to increase overall productivity.
 - You can integrate processes and teams with a unified pipeline.
+
+
+<br>
 
 ## Disadvantages of Continuous Integration
 Here are the cons/ disadvantages of continuous integration:
@@ -496,6 +576,9 @@ Here are the cons/ disadvantages of continuous integration:
 - Developers should merge their changes as more often as possible.
 - The unit testing procedure should pass for the Deployment.
 
+
+<br>
+
 ## Disadvantages of Continuous Delivery
 Here are the cons/disadvantages of continuous delivery:
 - You should know continuous integration practices before you go for continuous delivery.
@@ -505,12 +588,18 @@ Here are the cons/disadvantages of continuous delivery:
 - It requires team coordination because code changes should be collected regularly in an efficient way.
 - Continuous delivery requires a reliable and strong integration server for the automation test that is costly.
 
+
+<br>
+
 ## Disadvantages of Continuous Deployment
 Here are the cons/disadvantages of continuous Deployment:
 - Your testing culture should be good as the quality of the suite determines how good software
 releases are.
 - Documentation procedures need to keep up with deployment pace.
 - Releasing significant changes needs assurance by marketing, help, and support, and other departments.
+
+
+<br>
 
 ## Continuous Integration Best Practices
 Here are some important best practices while implementing Continuous Integration.
@@ -533,6 +622,9 @@ Here are some important best practices while implementing Continuous Integration
 - Automate the build and test everyone.
 - Keep the build fast with automated Deployment.
 
+
+<br>
+
 ## Continuous Delivery Best Practices
 Here are some important best practices while implementing continuous delivery:
 - The first stage must be triggered upon every check-in.
@@ -554,6 +646,9 @@ Here are some important best practices while implementing continuous Deployment:
 - Deployment software to pre-production staging servers.
 - Promote your software once you are happy with its quality.
 
+
+<br>
+
 ## Challenges of Continuous Integration
 Here are the challenges of continuous integration:
 - It makes the developing process slow.
@@ -562,6 +657,9 @@ Here are the challenges of continuous integration:
 - It can force you to deal with problems.
 - Difficulty in building automated code repository.
 - Untested or broken code must not be committed.
+
+
+<br>
 
 ## Challenges of Continuous Delivery
 Here are the challenges of continuous delivery:
@@ -572,6 +670,9 @@ Here are the challenges of continuous delivery:
 - Monitoring data/ information should be utilized by the research and development team.
 - The organization should ensure that how open source software fits into the current workflow.
 
+
+<br>
+
 ## Challenges of Continuous Deployment
 Here are the challenges of continuous deployment:
 - CD requires continuous planning to achieve frequent and fast releases.
@@ -581,6 +682,10 @@ Here are the challenges of continuous deployment:
 - Experimental results must be continuously linked with the software roadmap.
 
 -----------------------------------------------------------------------------------
+
+
+
+
 
 # How To Build a CI/CD Pipeline In Azure DevOps?
 
@@ -593,8 +698,10 @@ Table of Content:
 - [What is Azure DevOps?](#what-is-azure-devops)
 - [How to build Azure CI-CD Pipeline?](#how-to-build-azure-ci-cd-pipeline)
 
-## What is a CI/CD Pipeline?
 
+<br>
+
+## What is a CI/CD Pipeline?
 A CI/CD pipeline is used to automate the process of continuous integration and continuous deployment. The pipeline facilitates the software delivery process via stages like Build, Test, Merge, and Deploy.
 
 In simple words, a pipeline may sound like an overhead, but it isn’t. Instead, it’s a runnable specification of steps that reduce developers’ manual work by delivering a new version of a software productively and saves time.
@@ -607,8 +714,10 @@ In simple words, a pipeline may sound like an overhead, but it isn’t. Instead,
 
 Remember, the stages mentioned above are the basic stages, and different steps can be added to make the CI/CD process more automated. To bring a new life to these stages, we have Azure DevOps CI/CD. 
 
-## What is Azure DevOps?
 
+<br>
+
+## What is Azure DevOps?
 Azure DevOps is a collection of services given by Microsoft Azure. It provides development services for a team to support, plan, collaborate, build, and deploy applications. It provides integrated features in a browser or an IDE(Integrated Development Environment). Some of the services for developers are:
 
 - Azure Repos
@@ -619,14 +728,18 @@ Azure DevOps is a collection of services given by Microsoft Azure. It provides d
 
 These resources are quite useful, especially Azure Pipelines. In this section, we will be using Azure Pipelines to create a CI/CD pipeline for a .NET project.
 
-## What is Azure Pipelines?
 
+<br>
+
+## What is Azure Pipelines?
 The Azure CI/CD pipeline simplifies continuous integration and continuous delivery (CI/CD) in the application development process. You can start from the source stage with existing code on GitHub or on-premise containers. The Azure Repos can maintain a central repository, and the Azure pipelines maintain build and release pipelines for the given project. The Azure DevOps CI/CD process is a crucial process with all the required dev services.
 
 Apart from continuous integration and continuous deployment with Azure DevOps, these pipelines are used to construct build-deploy-test workflows used mainly in continuous testing (CT). This tests the changes in a fast and scalable routine.
 
-## Advantages of Azure Pipelines:
 
+<br>
+
+## Advantages of Azure Pipelines:
 The Azure Pipelines can be multifactored, and in the Azure DevOps CI/CD practice, they provide various advantages:
 
   1. **Version Control Systems** – Having the code into a version control system is the first step of building an Azure CI/CD pipeline. You can manage your source code in GitHub, Bitbucket, Subversion, or any other Git repository. It also supports Team Foundation Version Control (TFVC).
@@ -635,8 +748,10 @@ The Azure Pipelines can be multifactored, and in the Azure DevOps CI/CD practice
   
   3. **Deployment Targets** – The applications with Azure CI/CD pipelines can be deployed to multiple target environments. This includes Virtual Machines, Containers, or any On-prem or Cloud Platform.
 
-## How to build Azure CI-CD Pipeline?
 
+<br>
+
+## How to build Azure CI-CD Pipeline?
 This is a step-by-step guide to using Azure Pipelines to build a sample application. This guide uses YAML pipelines configured with the [YAML pipeline editor](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops). If you'd like to use Classic pipelines instead, see [Define your Classic pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops).
 
 ### Create the first Java pipeline
@@ -765,9 +880,11 @@ This is a step-by-step guide to using Azure Pipelines to build a sample applicat
 **Bu çalışma ile "example-repo-ci-cd-java-pipeline" repo'su için oluşturulan, SCOPE-CICD havuzundaki agent'lar tarafından derlenen, main branch'ine her commit geldiğinde otomatik olarak tetiklenen, YAML formatındaki "azure-pipelines" dosyası ile konfigüre edilen bir Build Pipeline oluşturmuş olduk. CI adımı için olan bu pipeline'ı CD adımı için olan Release Pipeline takip etmektedir. İkisinin birleştirilmesi ve uç uca çalışması ile CI/CD süreci tamamlanmaktadır.**
 
 
+<br>
 
 ## Neden Pipeline as Code Yaklasimi Uygulanmali?
 
+### Halen klasik editör kullanılabilir mi?
 Azure DevOps platformu bize iki çeşit pipeline oluşturma seçeneği sunmakta; klasik editör ile yaml. Yeni pipeline oluşturmak istediğimizde Azure DevOps platformu bizi varsayılan olarak yaml ile pipeline oluşturmaya yönlendirse de aşağıdaki görselde de belirtilen "Use the classic editor" butonu ile klasik pipeline yapısında kurulum yapılabilinir.
 
 <p align="center">
@@ -786,6 +903,14 @@ Aşağıdaki görselde de görülen şekilde agent'a "+" butonu ile yeni slot a�
   <img src="images/CI-surecleri/image-36.png">
 </p>
 
+<br>
+
+### Neden klasik editör kullanılmamalı?
 **"Pipeline as Code"** yaklaşımının klasik pipeline oluşturulma sisteminden en büyük farkı bu yaklaşımın bize pipeline'ları da versiyonlamamızı sağlayacak olmasıdır. Repo'nun root ('/') klasöründe yer alan "azure-pipelines.yml" da bir dosya olduğu için Git yapısı altında versiyonlanarak tutulmakta, yapılan geliştirmeler, eklemeler ve çıkarmalar saklanmaktadır. Yani iki yıl öncesinin kod'larını ve versiyonları görebileceğimiz gibi o kod'ların pipeline versiyonlarını da görebileceğiz. **Kod ile pipeline'lar eşleşmiş olacak**, *"Şu zamanın artifact'ini oluşturmalıyız"* denildiği zaman kodların o versiyonu için oluşturulup çalıştırılmış olan pipeline dosyasını kullanıp yine aynı artifact'i oluşturbilecek imkana sahip olunmuş olacaktır.
 
 *NOT: Global'de devam eden süreçte developer'lar kendi geliştirdikleri kodun pipeline'ını da kendileri yazmaktadırlar, CI süreçlerinin yönetimi developer'lar yapmakta, kodları ile birlikte pipeline yapısını da idame etmektedirler.*
+
+
+<br>
+
+## Klasik Editörü Nasıl YAML'a Çevirebiliriz?
