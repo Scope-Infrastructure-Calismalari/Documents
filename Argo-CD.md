@@ -201,32 +201,32 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
 
     Eğer kurulum doğru şekilde tamamlanmışsa karşımıza şuna benzer sonuçlar gelecektir:
 
-        NAME                                                    READY   STATUS    RESTARTS   AGE
-        pod/argocd-application-controller-***                   1/1     Running   0          3h32m
-        pod/argocd-applicationset-controller-***                1/1     Running   0          3h32m
-        pod/argocd-dex-server-***-djnpt                         1/1     Running   0          3h32m
-        pod/argocd-notifications-controller-***                 1/1     Running   0          3h32m
-        pod/argocd-redis-***                                    1/1     Running   0          3h32m
-        pod/argocd-repo-server-***                              1/1     Running   0          3h32m
-        pod/argocd-server-***                                   1/1     Running   0          120m
+        NAME                                                       READY   STATUS    RESTARTS   AGE
+        pod/argocd-application-controller-***                      1/1     Running   0          3h32m
+        pod/argocd-applicationset-controller-***                   1/1     Running   0          3h32m
+        pod/argocd-dex-server-***-djnpt                            1/1     Running   0          3h32m
+        pod/argocd-notifications-controller-***                    1/1     Running   0          3h32m
+        pod/argocd-redis-***                                       1/1     Running   0          3h32m
+        pod/argocd-repo-server-***                                 1/1     Running   0          3h32m
+        pod/argocd-server-***                                      1/1     Running   0          120m
 
-        NAME                                              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
-        service/argocd-applicationset-controller          ClusterIP   XX.XX.XX.XX      <none>        7000/TCP                     3h32m
-        service/argocd-dex-server                         ClusterIP   XX.XX.XX.XX      <none>        5556/TCP,5557/TCP,5558/TCP   3h32m
-        service/argocd-metrics                            ClusterIP   XX.XX.XX.XX      <none>        8082/TCP                     3h32m
-        service/argocd-notifications-controller-metrics   ClusterIP   XX.XX.XX.XX      <none>        9001/TCP                     3h32m
-        service/argocd-redis                              ClusterIP   XX.XX.XX.XX      <none>        6379/TCP                     3h32m
-        service/argocd-repo-server                        ClusterIP   XX.XX.XX.XX      <none>        8081/TCP,8084/TCP            3h32m
-        service/argocd-server                             ClusterIP   XX.XX.XX.XX      <none>        80/TCP,443/TCP               3h32m
-        service/argocd-server-metrics                     ClusterIP   XX.XX.XX.XX      <none>        8083/TCP                     3h32m
+        NAME                                                       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+        service/argocd-applicationset-controller                   ClusterIP   XX.XX.XX.XX      <none>        7000/TCP                     3h32m
+        service/argocd-dex-server                                  ClusterIP   XX.XX.XX.XX      <none>        5556/TCP,5557/TCP,5558/TCP   3h32m
+        service/argocd-metrics                                     ClusterIP   XX.XX.XX.XX      <none>        8082/TCP                     3h32m
+        service/argocd-notifications-controller-metrics            ClusterIP   XX.XX.XX.XX      <none>        9001/TCP                     3h32m
+        service/argocd-redis                                       ClusterIP   XX.XX.XX.XX      <none>        6379/TCP                     3h32m
+        service/argocd-repo-server                                 ClusterIP   XX.XX.XX.XX      <none>        8081/TCP,8084/TCP            3h32m
+        service/argocd-server                                      ClusterIP   XX.XX.XX.XX      <none>        80/TCP,443/TCP               3h32m
+        service/argocd-server-metrics                              ClusterIP   XX.XX.XX.XX      <none>        8083/TCP                     3h32m
 
-        NAME                                               READY   UP-TO-DATE   AVAILABLE   AGE
-        deployment.apps/argocd-applicationset-controller   1/1     1            1           3h32m
-        deployment.apps/argocd-dex-server                  1/1     1            1           3h32m
-        deployment.apps/argocd-notifications-controller    1/1     1            1           3h32m
-        deployment.apps/argocd-redis                       1/1     1            1           3h32m
-        deployment.apps/argocd-repo-server                 1/1     1            1           3h32m
-        deployment.apps/argocd-server                      1/1     1            1           3h32m
+        NAME                                                       READY   UP-TO-DATE   AVAILABLE   AGE
+        deployment.apps/argocd-applicationset-controller           1/1     1            1           3h32m
+        deployment.apps/argocd-dex-server                          1/1     1            1           3h32m
+        deployment.apps/argocd-notifications-controller            1/1     1            1           3h32m
+        deployment.apps/argocd-redis                               1/1     1            1           3h32m
+        deployment.apps/argocd-repo-server                         1/1     1            1           3h32m
+        deployment.apps/argocd-server                              1/1     1            1           3h32m
 
         NAME                                                       DESIRED   CURRENT   READY   AGE
         replicaset.apps/argocd-applicationset-controller-***       1         1         1       3h32m
@@ -237,8 +237,8 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
         replicaset.apps/argocd-server-***                          0         0         0       3h32m
         replicaset.apps/argocd-server-***                          1         1         1       120m
 
-        NAME                                             READY   AGE
-        statefulset.apps/argocd-application-controller   1/1     3h32m
+        NAME                                                       READY   AGE
+        statefulset.apps/argocd-application-controller             1/1     3h32m
 
 5. Cluster'da pod'da çalışan uygulamaya erişebilmek için servis tanımlanması gerekmektedir.Load Balancer, ingress gibi farklı seçenekler mevcut. Biz bu anlatımda *Port Forwarding* kullanacağız:
 
@@ -259,7 +259,7 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
     **Eğer bu adıma kadar sorunsuz ilerleyebildiysek localhost bağlantısına tıkladığımızda ekranımıza aşağıdaki gibi bir sayfa gelecektir.**
 
 <p align="center">
- <img src="images/Argo-CD/image-111.png"></p>
+ <img src="images/Argo-CD/image-17.png"></p>
 
 6. Varsayılan kullanıcı adı olarak "admin" ile gelen Argo CD uygulaması, kullanıcı şifresini ise kurulum anında oluşturmaktadır. Initial password'e ise şu şekilde ulaşılabilir:
 
@@ -283,7 +283,7 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
 
       Şifrenin **Bcrypt** şifreleme yöntemi kullanılarak şifrelenmesi gerekmektedir. Bunu yapabilmek için [browserling](https://www.browserling.com/tools/bcrypt) adresine gidip Password kısmına belirlediğimiz şifreyi yazıp **Bcrypt** butonuna basarak şifreleme işlemini gerçekleştirebiliriz.
 
-<p align="center"><img src="images/Argo-CD/image-112.png"></p>
+<p align="center"><img src="images/Argo-CD/image-18.png"></p>
 
       Oluşturulan bu şifreyi kopyalayıp yukarıdaki komuttaki "XXXXXXXXXXXXX" kısmının yerine yazıp çalıştırdığımızda şifre değiştirme işlemi başarıyla tamamlanmış olacaktır.
 
@@ -302,7 +302,7 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
 
 9. Bu aşamaları sıkıntısız geçebildiysek artık localhost:8080 ile yeniden uygulamamıza erişip kendi belirlediğimiz ve bcrypt ettiğimiz şifre ile giriş yapabilmemiz gerekmekte. Giriş işlemi başarıyla sonuçlanırsa karşımıza şu şekilde bir ekran gelecektir:
 
-<p align="center"><img src="images/Argo-CD/image-113.png"></p>
+<p align="center"><img src="images/Argo-CD/image-19.png"></p>
 
 10. Tebrikler. Kurulum işlemini başarıyla tamamladınız. Bir sonraki adımda bu boş ekranı uygulamalarla doldurup biraz hareketlendireceğiz :)
 
@@ -310,8 +310,113 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
 
 ## Kurulum (Bulut)
 
+Bu kısım ileride yazılacaktır.
 
 
-## Kullanım Örneği
+
+## Örnek Çalışma
+
+*Bu örnekte K8s konfigürasyon değişiklikleri için Argo CD uygulaması ile tam otomatik CD pipeline'ının kurulması ve çalıştırılmasını göreceğiz*
+
+Bu örnek uygulamada bize gerekenler:
+
+- "Deployment" ve "service" yaml dosyalarını içeren Git repo'su
+
+- Örnekte kullanılacak olan Docker imajlarını içeren Docker Hub repo'su
+
+- İçerisi boş olan Minikube cluster'ı
+
+Bu örneğin tamamlanması için gerçekleştirilecek adımlar:
+
+1. Install Argo CD in K8s cluster
+
+2. "Aplication" CRD ile Argo CD'nin konfigüre edilmesi
+
+3. *Deployment.yaml* dosyasını güncelleyerek kurulumun test edilmesi
+
+<p align="center"><img src="images/Argo-CD/image-28.png"></p>
 
 
+## 1. Adım - Install ArgoCD in K8s cluster
+
+Kurulum adımlarının anlatıldığı internet sayfasına [buradan](https://argo-cd.readthedocs.io/en/stable/getting_started/#1-install-argo-cd) ulaşabilirsiniz.
+
+ - K8s cluster'ının içerisine Argo CD namespace'i oluşturuyoruz:
+
+    `kubectl create namespace argocd`
+
+<p align="center"><img src="images/Argo-CD/image-20.png"></p>
+
+ - Namespace içerisine Argo CD uygulamasının kurulumunu yapıyoruz
+
+    `kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml` 
+
+<p align="center"><img src="images/Argo-CD/image-21.png"></p>
+
+  Kurulum sonucunu görebilmek için `kubectl get pod -n argocd` komutunu çalıştırıp çıktıları görebiliriz.
+
+<p align="center"><img src="images/Argo-CD/image-22.png"></p>
+
+Tüm pod'ların çalışır duruma geçmesini beklemeliyiz. `kubectl get pod -n argocd -w` komutu ile gözlemleme(watch) konumuna geçip kolayca takip edebiliriz.
+
+### Argo CD UI'ına Erişmek
+
+  K8s cluster'ında çalışan Servisleri `kubectl get svc -n argocd` komutu ile incelediğimizde *argocd-server* servisinin *80* ve *443* portlarının açık olduğunu gözlemleyebiliriz.
+
+<p align="center"><img src="images/Argo-CD/image-23.png"></p>
+
+  Bu port'ları kendi makinemizin port'larına yönlendirip UI'a erişebilir hale geleceğiz.
+
+  `kubectl port-forward -n argocd svc/argocd-server 8080:443`
+
+  Bu komut ile bu servise artık localhost üzerinden erişebilir hale gelmiş olduk. 
+
+<p align="center"><img src="images/Argo-CD/image-24.png"></p>
+
+Artık [localhost:8080](localhost:8080) veya [127.0.0.1:8080](127.0.0.1:8080) adresleri ile service erişebiliriz
+
+Aşağıdaki gibi güvensiz bağlantı uyarısı alınılması durumunda *Advanced -> Proceed to 127.0.0.1 (unsafe)* şeklinde ilerleme yapılarak bağlantıya erişebilir olmuş olacağız.
+
+<p align="center"><img src="images/Argo-CD/image-25.png"></p>
+
+Artık Argo CD uygulamasının UI'ı önümüze gelecektir:
+
+<img src="images/Argo-CD/image-17.png"></p>
+
+Yukarıda bahsedilen ve kurulum adımlarının anlatıldığı [internet sitesi](https://argo-cd.readthedocs.io/en/stable/getting_started/#1-install-argo-cd) üzerindeki *4. Login Using The CLI* başlığı altında sisteme nasıl giriş yapıldığı anlatılmaktadır, biz de burada bahsedeceğiz. Yeni güncellemeler sonrası buradaki giriş yöntemi değişirse (ki önceden bu durum olmuştu) o zaman bahsi geçen internet sitesinden yeni yöntemi denemeniz faydalı olacaktır.
+
+Username'in *admin* olarak tanımlandığı sistemin şifresi ise Argo CD kurulumu yapılırken oluşmaktadır. Şifre *argocd-initial-admin-secret* ismiyle oluşturulan secret içerisinde saklanmaktadır.
+
+Secret'ı ekrana yaml olarak bastırıyoruz:
+
+`kubectl get secret argocd-initial-admin-secret -n argocd -o yaml`
+
+<img src="images/Argo-CD/image-26.png"></p>
+
+*data*'nın altında yer alan *password*'ün karşısında yazan şifre bilgisi base64 encode değeridir. Bu değeri decode edip şifreye ulaşabileceğiz:
+
+`echo <encoded_password_value> | base64 --decode`
+
+<img src="images/Argo-CD/image-27.png"></p>
+
+**%** işaretini dikkate almadan önceki değerleri kopyalayarak şifreyi elde etmiş oluruz. Username'i admin olan kullanıcının *initial password* değerine de bu şekilde ulaşmış olduk. 
+
+Giriş yaptıktan sonra Argo CD'nin boş UI ekranı önümüze gelecektir.
+
+<p align="center"><img src="images/Argo-CD/image-19.png"></p>
+
+
+
+## 2. Adım - Configure Argo CD with "Application" CRD
+
+Bu adımda konfigürasyon dosyalarının yer aldığı Git repo'sunun Argo CD ile bağlantısını sağlayacak konfigürasyon dosyasını yazıp bağlantıyı tamamlayacağız. (Argo CD'nin konfigurasyon dosyası da yine bu konfigurasyon repo'sunda olacaktır.)
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 3. Adım
