@@ -136,7 +136,7 @@ It only works seamlessly with Jira but also works with popular SCM tools like Bi
 <br>
 
 # 6-GoCD
-<p align="center"><img src="images/CI-toolsets/image-6.png"></p>
+<p align="center"><img src="images/CI-toolsets/image-6.jpg"></p>
 
 [GoCD](https://www.gocd.org/download/) is an open-source Continuous Integration server from the folks at Thoughtworks. In comparison to the other CI/CD DevOps tools, its major differentiator is the [Value Stream Map](https://www.gocd.org/getting-started/part-3/#value_stream_map) (VSM) feature. VSM is a full end-to-end view across pipelines, and it successfully maps it to the concept of ‘Deployment Pipeline’ or ‘Continuous Delivery Pipeline.’
 
