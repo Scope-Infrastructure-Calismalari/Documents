@@ -582,3 +582,18 @@ Argo CD kurulurken yetkili kullanıcıyı ve şifresini kendi oluşturup base64 
 Hatırlayacağımız üzere Argo CD kurulumu terminalden bize gösterilirken kurulum tamamlandıktan sonra ekranda bazı komutlar belirmişti. İşte bu komutu kullanarak şifremizi doğrudan elde edip UI ekranından giriş yapacağız. Root username'i **admin** olan kullanıcımızın şifresi ise şu komutla elde edilmektedir: `echo "$(kubectl -n scope-argocd get secret argocd-secret -o jsonpath="{.data.clearPassword}" | base64 -d)"`
 Bu şifreyi ekrana girip uygulamaya erişim sağlanabilinmektedir.
 <p align="center"><img src="images/Argo-CD/image-56.png"></p>
+
+<br>
+
+## Örnek Proje (Bulut)
+
+### 1 - UI üzerinden yeni repo eklenir
+Ekranın sol tarafındaki *Ayarlar* butonuna tıklanıp *Repositories* menüsüne girilir.
+<p align="center"><img src="images/Argo-CD/image-57.png"></p>
+
+Çıkan ekrandan *CONNECT REPO USING HTTPS* seçeneği seçilir.
+<p align="center"><img src="images/Argo-CD/image-58.png"></p>
+
+Açılan yeni ekrandan *Project* seçilir ve *Repository URL* kısmına Git repo'muzun bağlantısı yapıştırılıp üstteki *Connect* butonuna basılır ve yeni repo bağlantısı oluşturulmuş olunur.
+<p align="center"><img src="images/Argo-CD/image-59.png"></p>
+
