@@ -10,12 +10,9 @@ Yazının devamında daha detaylı olarak anlatılacak olan Argo CD mimarisinin 
 
 <p align="center"><img src="images/Argo-CD/image-1.png"></p>
 
-
-
 ## Argo CD Nedir?
+
 Argo CD, adından da anlaşılabileceği üzere aslında bir **C**ontinuous **D**elivery (Sürekli Teslim) aracıdır. Argo CD'yi anlamadan önce CD'nin projelere nasıl eklenip uygulandığını, ve birçok projenin ortak tercihi olan Jenkins ve GitLab gibi CI/CD araçlarının anlayıp sonrasında Argo CD'yi bunlarla kıyaslayarak devam edeceğiz.
-
-
 
 ### Birçok projede CD nasıl kullanılmaktadır?
 
@@ -52,23 +49,21 @@ Docker imajını Docker Repo'ya push'lama işlemine kadar olan basamakların tü
 
 **Bu CI/CD sürecinin zorlukları ve sıkıntıları:**
 
- - K8s cluster'ına erişebilmek ve değişiklikler yapabilmek için kubectl, helm gibi araçların bu örnekte Jenkins olarak varsaydığımız ve sistemimizde kullandığımız *Build Automation Tool* 'larına yüklenmesi gerekliliği
+- K8s cluster'ına erişebilmek ve değişiklikler yapabilmek için kubectl, helm gibi araçların bu örnekte Jenkins olarak varsaydığımız ve sistemimizde kullandığımız *Build Automation Tool* 'larına yüklenmesi gerekliliği
 
- - K8s'e erişimin sağlanması da gerekmekte çünkü kubectl yalnızca K8s client aracıdır ve K8s'e erişebilmesi için "credential"ların tanımlanması gerekmektedir. Eğer AWS gibi bulut sunucuları kullanıyorsak bunlara da erişim için ayrıca credentials tanımlamamız gerekmektedir.
+- K8s'e erişimin sağlanması da gerekmekte çünkü kubectl yalnızca K8s client aracıdır ve K8s'e erişebilmesi için "credential"ların tanımlanması gerekmektedir. Eğer AWS gibi bulut sunucuları kullanıyorsak bunlara da erişim için ayrıca credentials tanımlamamız gerekmektedir.
 
- - Bu credential tanımlamaları yalnızca konfigürasyona emek vermek değil bunun yanı sıra güvenlik konusunu da gündeme getirmektedir. Cluster credential'larını external servislere ve araçlara da vermemiz gerekmektedir. Örneğin 33 adet uygulamamız varsa her uygulama kendisi için ayrıca credential talep etmektedir. Ancak bu şekilde her uygulama cluster'da kendisi için tanımlı uygulama kaynaklarına erişebilmiş olacaktır. Eğer tek bulut servisimiz değil de başka cluster'larımız da varsa bunların herbiri için de yine credential tanımlamaları gerekecektir.
+- Bu credential tanımlamaları yalnızca konfigürasyona emek vermek değil bunun yanı sıra güvenlik konusunu da gündeme getirmektedir. Cluster credential'larını external servislere ve araçlara da vermemiz gerekmektedir. Örneğin 33 adet uygulamamız varsa her uygulama kendisi için ayrıca credential talep etmektedir. Ancak bu şekilde her uygulama cluster'da kendisi için tanımlı uygulama kaynaklarına erişebilmiş olacaktır. Eğer tek bulut servisimiz değil de başka cluster'larımız da varsa bunların herbiri için de yine credential tanımlamaları gerekecektir.
 
- - **En önemli sorun** ise K8s'e uygulama deploy eden veya K8s konfigürasyonlarında bir değişiklik yapan Jenkins, bu deployment'ların durumları ile ilgili bilgi sahibi olamamaktadır. Bir defa "`kubectl apply ...`" komutu çalıştırıldığında Jenkins aslında bu execution'ın durumu hakkında bilgi sahibi olamamaktadır. "Uygulama kuruldu mu?", "Uygulama durumu healty mi?", veya "Uygulama başlama aşamasında hata mı verdi?" gibi soruların yanıtını Jenkins takip edememektedir.
+- **En önemli sorun** ise K8s'e uygulama deploy eden veya K8s konfigürasyonlarında bir değişiklik yapan Jenkins, bu deployment'ların durumları ile ilgili bilgi sahibi olamamaktadır. Bir defa "`kubectl apply ...`" komutu çalıştırıldığında Jenkins aslında bu execution'ın durumu hakkında bilgi sahibi olamamaktadır. "Uygulama kuruldu mu?", "Uygulama durumu healty mi?", veya "Uygulama başlama aşamasında hata mı verdi?" gibi soruların yanıtını Jenkins takip edememektedir.
 
 **Bu durumlardan dolayı CI/CD sürecinin CD kısmının iyileştirilebileceğini görmekteyiz.**
 
 İşte Argo CD bu özel durumlar göz önüne alınarak K8s cluster'larına daha efektif bir şekilde *"delivery"* yapılabilmesi için GitOps prensipleri baz alınarak geliştirildi. Argo CD için **CD for Kubernetes** diyebiliriz.
 
-
-
 ### Argo CD ile CD Sürecinin Yürütülmesi
 
-İlk olarak Argo CD, Jenkins vb. gibi K8s cluster'ına dışarıdan erişen bir araç olmak yerine bilakis bu cluster'da kurulan ve içerisinde çalışan bir uygulamadır. Yani Argo CD K8s cluster'ının bir parçasıdır. 
+İlk olarak Argo CD, Jenkins vb. gibi K8s cluster'ına dışarıdan erişen bir araç olmak yerine bilakis bu cluster'da kurulan ve içerisinde çalışan bir uygulamadır. Yani Argo CD K8s cluster'ının bir parçasıdır.
 
 Bu şekilde K8s cluster'ının içerisinde kurulmuş olmasının sağladığı en büyük avantaj: **Jenkins gibi değişiklikleri K8s'e push'lamak yerine pull etmesidir**. Zaten K8s cluster'ının içerisinde yer aldığı için aslında dışarıda Git repo'sunda yer alan ve değişikliğe uğrayan K8s manifest dosyasındaki değişikliği pull ederek K8s cluster'ına bu yeni dosyayı iletmiş olmaktadır.
 
@@ -83,40 +78,38 @@ Peki bunu nasıl yapabiliriz:
 Sürece en başındak baktığımızda şu şekilde özetleyebiliriz.
 
  1. Developer bir geliştirme veya bugfix yaparak bunu Git repo'suna push'lar.
- 
+
  2. Jenkins vb. araçlarda tanımlanmış olan CI süreci otomatik devreye girer ve yukarıda bahsettiğimiz adımları uygulayarak yeni bir Docker imajı oluşturup K8s manifest dosyalarında, örneğin deployment.yml, değişiklik yapar.
- 
+
  3. Argo CD ise bu değişikliği algılayıp yeni manifest dosyasını K8s cluster'ına pull eder.
- 
+
 **Best Practice for Git Repository**: Git repo'sunu *application source code* ve *application configuration* (K8s manifest files) olarak ayırmalıyız. Hatta *system configuration* için de ayrı bir repo oluşturmalıyız.
 
 Peki neden bu yaklaşımı uygulamamız lazım? Çünkü:
 
- - Uygulamanın konfigurasyon kodları yalnızca deployment dosyasında değil, bununla beraber configmap, secret, service, ingress vb. dosyalarında da olup uygulamanın cluster'da çalışması için gerekli olabilir.
+- Uygulamanın konfigurasyon kodları yalnızca deployment dosyasında değil, bununla beraber configmap, secret, service, ingress vb. dosyalarında da olup uygulamanın cluster'da çalışması için gerekli olabilir.
 
- - K8s manifest dosyaları kaynak kod'dan bağımsızdır. Örneğin uygulamanın service.yml dosyasında bir değişiklik yaptığımızda tüm CI sürecinin baştan başlamasını istemeyiz çünkü kodlarda bir değişiklik yapılmamıştır.
+- K8s manifest dosyaları kaynak kod'dan bağımsızdır. Örneğin uygulamanın service.yml dosyasında bir değişiklik yaptığımızda tüm CI sürecinin baştan başlamasını istemeyiz çünkü kodlarda bir değişiklik yapılmamıştır.
 
- - CI pipeline sürecine K8s manifest dosyalarının da eklersek karmaşık bir pipeline süreci oluşturmuş oluruz. 
+- CI pipeline sürecine K8s manifest dosyalarının da eklersek karmaşık bir pipeline süreci oluşturmuş oluruz.
 
- - Yalnızca *App Configuration* Git repo'sunu takip etmesini söylediğimiz Argo CD uygulaması, Jenkins uygulamasının CI sürecini tamamlayıp K8s manifest dosyasını (örneğin Deployment.yml) değiştirip bu repo'ya push'lamasından sonra otomatikl olarak çalışıp bunu K8s cluster'ının içine çekecektir.
+- Yalnızca *App Configuration* Git repo'sunu takip etmesini söylediğimiz Argo CD uygulaması, Jenkins uygulamasının CI sürecini tamamlayıp K8s manifest dosyasını (örneğin Deployment.yml) değiştirip bu repo'ya push'lamasından sonra otomatikl olarak çalışıp bunu K8s cluster'ının içine çekecektir.
 
 <p align="center"><img src="images/Argo-CD/image-9.png"></p>
 
 Argo CD K8s manifest dosyalarının "Plain(K8s) YAML Files", "Helm Charts", "Kustomize Files" veya diğer K8s manifest dosyaları oluşturan diğer template dosyaları desteklemektedir.
 
-Bu dosyaların olduğu ve *App Configuration* olarak adlandırığımız repo aslında GitOps repo'su olmuş olmakta ve Argo CD'ye burayı dinlemesini söylemekteyiz. Bu repo'daki dosyalar Jenkins CI süreci ile değiştirilebileceği gibi doğrudan DevOps mühendisleri tarafından da değiştirilebilecektir. 
+Bu dosyaların olduğu ve *App Configuration* olarak adlandırığımız repo aslında GitOps repo'su olmuş olmakta ve Argo CD'ye burayı dinlemesini söylemekteyiz. Bu repo'daki dosyalar Jenkins CI süreci ile değiştirilebileceği gibi doğrudan DevOps mühendisleri tarafından da değiştirilebilecektir.
 
 <p align="center"><img src="images/Argo-CD/image-10.png"></p>
 
-Argo CD kurulumu ve kullanımı sonrasında artık CI ve CD pipeline'larımızı ayırmış oluyoruz. Bunun bize sağladığı avantaj ise CI süreçlerini, kodları geliştiren developer'ların yürütebilmesini ve kendi yazdıkları kodların paketlenmesini takip edebilmesini sağlamak. Aynı zamanda daha çok operasyonel işlerle ilgilenen kişilerin de developer'ların düzenlediği pipeline'lar sonucunda üretilen paketlerin alınması ve doğru şekilde çalışmasını sağlamaya odaklanabilmeleridir. Böylece farklı odakları olan iki farklı takım kendi süreçlerine odaklanabilecektir. 
+Argo CD kurulumu ve kullanımı sonrasında artık CI ve CD pipeline'larımızı ayırmış oluyoruz. Bunun bize sağladığı avantaj ise CI süreçlerini, kodları geliştiren developer'ların yürütebilmesini ve kendi yazdıkları kodların paketlenmesini takip edebilmesini sağlamak. Aynı zamanda daha çok operasyonel işlerle ilgilenen kişilerin de developer'ların düzenlediği pipeline'lar sonucunda üretilen paketlerin alınması ve doğru şekilde çalışmasını sağlamaya odaklanabilmeleridir. Böylece farklı odakları olan iki farklı takım kendi süreçlerine odaklanabilecektir.
 
 <p align="center"><img src="images/Argo-CD/image-11.png"></p>
 
 Git reposunun "Single Source of Truth" olarak kullanılması aynı zamanda K8s cluster'ının tamamen şeffaf olmasını sağlamaktadır çünkü cluster'da çalışan uygulamalar, bunların ayarları vb. tüm bilgiler kod ile açıkça belirlenmiş ve Git repo'sunda kayıt altına alınmıştır. Sürüm kontrolünü zaten söylemeye gerek yok :)
 
 Gerçekten cluster'da çok hızlı bir şekilde güncelleme yapılması gerektiği durumlarda Argo CD'nin otomatik senkronizasyonu kapatılıp manuel değişikliklere açık hale getirilebilinmekte ve manuel değişiklik yapılması durumunda dışarıya bir sinyal/uyarı gönderilebilmekte ve bu değişikliğin kodda da yapılması sağlanmaktadır.
-
-
 
 ### Faydaları
 
@@ -126,9 +119,7 @@ Gerçekten cluster'da çok hızlı bir şekilde güncelleme yapılması gerekti�
 
 - Takımdaki tüm kişilerin aynı arayüz ile değişiklik yapabilmesinin sağlanmasıdır. "`git commit ...`" komutunun çalıştırılması yeterli olacaktır.
 
-- **En büyük fayda ise -> "Single Source of Truth"**. Eğer takımdan biri K8s cluster'ına kendi bilgisayarından bağlanıp bir değişiklik yaparsa (bir uygulamanın replika sayısını 1'den 2'ye çıkarmak gibi), Argo CD 
-
-
+- **En büyük fayda ise -> "Single Source of Truth"**. Eğer takımdan biri K8s cluster'ına kendi bilgisayarından bağlanıp bir değişiklik yaparsa (bir uygulamanın replika sayısını 1'den 2'ye çıkarmak gibi), Argo CD
 
 ### Cluster'ın Kurtarılması
 
@@ -137,8 +128,6 @@ Gerçekten cluster'da çok hızlı bir şekilde güncelleme yapılması gerekti�
 Geliştirdiğimiz uygulamalarının kaynak kod'larının Git repo'sunda yer alması kodların güvenle saklanmasını, yerel makinede sorun olması/sistemin çökmesi/makinenin kaybolması durumunda bizi kurtardığı gibi cluster'ın çalıştığı bilgisayarın sorun yaşaması durumunda da bu yöntemle repo'laştırdığımız configuration dosyaları ile de cluster'ımızı aynı şekliyle yeniden ayaklandırabilmiş olacağız. Manuel değişiklikler ile ilerlenmiş olsaydı daha önceki tüm düzenlemelerin hatırlanıp tekrar yapılması gerekecekti, tabi bu ne kadar mümkün olabilirse.
 
 Aslında bu Argo CD'nin getirdiği bir şey değil, GitOps'un sağladığı faydalardan biridir. Argo CD ise bizim GitOps prensiplerini uygulamamıza yardımcı olmaktadır.
-
-
 
 ### K8s'in Git ile Erişim Kontrolü
 
@@ -157,21 +146,17 @@ Bunu aynı zamanda "non-human users"a da uygulayacağız. Örneğin Jenkins gibi
 
 <p align="center"><img src="images/Argo-CD/image-15.png"></p>
 
-
-
 ### K8s Eklentisi Olarak Argo CD
 
-Argo CD yalnızca K8s cluster'ına deploy edilmiş bir uygulama değildir, eğer böyle olmuş olsaydı Jenkins de aynı şekilde içeri deploy edilebildiğinden bir farkları olmamış olacaktı. Argo CD'nin burada farklılaşmasını sağlayan şey aslında K8s API'ının bir uzantısı olmasıdır. Aslında Argo CD bir şeyleri yeniden inşa etmek, tüm fonksiyonları yeniden sunmak yerine K8s'in fonksiyonlarına katkı sağlayıp zenginleştirmektedir. Kendi işlemlerini yapabilmek için de K8s'in fonksiyonlarını kullanmaktadır, örneğin verileri saklamak için *"etcd"* kullanmaktadır. 
+Argo CD yalnızca K8s cluster'ına deploy edilmiş bir uygulama değildir, eğer böyle olmuş olsaydı Jenkins de aynı şekilde içeri deploy edilebildiğinden bir farkları olmamış olacaktı. Argo CD'nin burada farklılaşmasını sağlayan şey aslında K8s API'ının bir uzantısı olmasıdır. Aslında Argo CD bir şeyleri yeniden inşa etmek, tüm fonksiyonları yeniden sunmak yerine K8s'in fonksiyonlarına katkı sağlayıp zenginleştirmektedir. Kendi işlemlerini yapabilmek için de K8s'in fonksiyonlarını kullanmaktadır, örneğin verileri saklamak için *"etcd"* kullanmaktadır.
 
-Argo CD'nin bize büyük avantaj sunmasını sağlayan şeylerden biri de aslında K8s'in kontrolcülerini kullanmasıdır. Bu sayede K8s'in anlık durumunu takip edebilmekte, istenen durum ile anlık durumu kıyaslayabilmektedir. Bu sayede Jenkins'in bize sunamadığı "Visibility in the cluster"ı da sunabilmektedir. Yeni bir uygulama deploy edildiğinde pod'un oluşturulma durumunu, uygulamanın sağlık durumunu (healty status), pod'un fail olma durumunu, rollback ihtiyacı olup olmadığını Argo CD UI ile takip edebilmiş olacağız. 
+Argo CD'nin bize büyük avantaj sunmasını sağlayan şeylerden biri de aslında K8s'in kontrolcülerini kullanmasıdır. Bu sayede K8s'in anlık durumunu takip edebilmekte, istenen durum ile anlık durumu kıyaslayabilmektedir. Bu sayede Jenkins'in bize sunamadığı "Visibility in the cluster"ı da sunabilmektedir. Yeni bir uygulama deploy edildiğinde pod'un oluşturulma durumunu, uygulamanın sağlık durumunu (healty status), pod'un fail olma durumunu, rollback ihtiyacı olup olmadığını Argo CD UI ile takip edebilmiş olacağız.
 
 Eğer büyük resme bakarsak, aslında bir tarafta Git repo'muz, diğer tarafta K8s cluster'ı ve bu ikisinin tam ortasında ise Argo CD yer almakta. Git repo'su burada **istenen durum**u, K8s cluster'ı ise **gerçekte çalışan durum**u belirtmektedir. Argo CD ise bu ikisinin senkronize olduğundan emin olmak ile yükümlüdür. İkisi arasında ayrılık/farklılık olduğu durumda ilk fırsatta güncelleme yapmaktadır.
 
 <p align="center"><img src="images/Argo-CD/image-16.png"></p>
 
 *Notların çıkarılmasına kaynaklık eden YouTube videosuna (ArgoCD Tutorial for Beginners | GitOps CD for Kubernetes) [buradan](https://www.youtube.com/watch?v=MeU5_k9ssrs&ab_channel=TechWorldwithNana) ulaşabilirsiniz.*
-
-
 
 ## Kurulum (Yerel makina)
 
@@ -244,7 +229,7 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
 
     `kubectl port-forward svc/argocd-server -n argocd 8080:443`
 
-    Bu komut ile Argo CD'nin API sunucusuna https://localhost:8080 bağlantısını kullanarak erişebilmiş olacağız.
+    Bu komut ile Argo CD'nin API sunucusuna <https://localhost:8080> bağlantısını kullanarak erişebilmiş olacağız.
 
     - LoadBalancer için:
 
@@ -254,7 +239,7 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
 
     - Ingress için:
 
-        Argo CD'nin ingress ile konfigüre edilmesini anlatan doküman için bağlantı: https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/ingress.md
+        Argo CD'nin ingress ile konfigüre edilmesini anlatan doküman için bağlantı: <https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/ingress.md>
 
     **Eğer bu adıma kadar sorunsuz ilerleyebildiysek localhost bağlantısına tıkladığımızda ekranımıza aşağıdaki gibi bir sayfa gelecektir.**
 
@@ -263,7 +248,7 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
 
 6. Varsayılan kullanıcı adı olarak "admin" ile gelen Argo CD uygulaması, kullanıcı şifresini ise kurulum anında oluşturmaktadır. Initial password'e ise şu şekilde ulaşılabilir:
 
-###    **Argo CD versiyon 1 için:**
+### **Argo CD versiyon 1 için:**
 
     - Aşağıdaki komut ile argocd namespace'indeki tüm kurulumları listeyelim pod'lardan *argocd-server* olanını filtreliyoruz.
 
@@ -301,11 +286,11 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
 
     deployment.apps/argocd-server restarted
 
-###  **Argo CD versiyon 2 için:**
+### **Argo CD versiyon 2 için:**
 
   Şifre yine otomatik olarak *"argocd-initial-admin-secret"*  isminde bir secret olarak oluşturulmuştur.
 
-  `kubectl get secret argocd-initial-admin-secret -n argocd -o yaml` komutunu çalıştırıp *data* -> *password* altında şifremizin base64 ile encode edilmiş halini görebiliriz. 
+  `kubectl get secret argocd-initial-admin-secret -n argocd -o yaml` komutunu çalıştırıp *data* -> *password* altında şifremizin base64 ile encode edilmiş halini görebiliriz.
 
 <p align="center"><img src="images/Argo-CD/image-26.png"></p>
 
@@ -313,14 +298,11 @@ Argo CD uygulaması "minikube" uygulaması üzerinde çalışan Kubernetes clust
 
 <p align="center"><img src="images/Argo-CD/image-27.png"></p>
 
-
 7. Bu aşamaları sıkıntısız geçebildiysek artık localhost:8080 ile yeniden uygulamamıza erişip kendi belirlediğimiz ve bcrypt ettiğimiz şifre ile giriş yapabilmemiz gerekmekte. Giriş işlemi başarıyla sonuçlanırsa karşımıza şu şekilde bir ekran gelecektir:
 
 <p align="center"><img src="images/Argo-CD/image-19.png"></p>
 
 8. Tebrikler. Kurulum işlemini başarıyla tamamladınız. Bir sonraki adımda bu boş ekranı uygulamalarla doldurup biraz hareketlendireceğiz :)
-
-
 
 ## Örnek Çalışma
 
@@ -350,15 +332,15 @@ Bu örneğin tamamlanması için gerçekleştirilecek adımlar:
 
 Kurulum adımlarının anlatıldığı internet sayfasına [buradan](https://argo-cd.readthedocs.io/en/stable/getting_started/#1-install-argo-cd) ulaşabilirsiniz.
 
- - K8s cluster'ının içerisine Argo CD namespace'i oluşturuyoruz:
+- K8s cluster'ının içerisine Argo CD namespace'i oluşturuyoruz:
 
     `kubectl create namespace argocd`
 
 <p align="center"><img src="images/Argo-CD/image-20.png"></p>
 
- - Namespace içerisine Argo CD uygulamasının kurulumunu yapıyoruz
+- Namespace içerisine Argo CD uygulamasının kurulumunu yapıyoruz
 
-    `kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml` 
+    `kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml`
 
 <p align="center"><img src="images/Argo-CD/image-21.png"></p>
 
@@ -378,7 +360,7 @@ Tüm pod'ların çalışır duruma geçmesini beklemeliyiz. `kubectl get pod -n 
 
   `kubectl port-forward -n argocd svc/argocd-server 8080:443`
 
-  Bu komut ile bu servise artık localhost üzerinden erişebilir hale gelmiş olduk. 
+  Bu komut ile bu servise artık localhost üzerinden erişebilir hale gelmiş olduk.
 
 <p align="center"><img src="images/Argo-CD/image-24.png"></p>
 
@@ -408,7 +390,7 @@ Secret'ı ekrana yaml olarak bastırıyoruz:
 
 <img src="images/Argo-CD/image-27.png"></p>
 
-**%** işaretini dikkate almadan önceki değerleri kopyalayarak şifreyi elde etmiş oluruz. Username'i admin olan kullanıcının *initial password* değerine de bu şekilde ulaşmış olduk. 
+**%** işaretini dikkate almadan önceki değerleri kopyalayarak şifreyi elde etmiş oluruz. Username'i admin olan kullanıcının *initial password* değerine de bu şekilde ulaşmış olduk.
 
 Giriş yaptıktan sonra Argo CD'nin boş UI ekranı önümüze gelecektir.
 
@@ -426,28 +408,30 @@ Config repo: [https://github.com/Scope-Infrastructure-Calismalari/argocd-app-con
 
 Docker repo: [https://hub.docker.com/repository/docker/scopeinfra/argocd-app](https://hub.docker.com/repository/docker/scopeinfra/argocd-app)
 
-Argo CD konfigürasyonunu yazarak işe başlayabiliriz, dosya ismimiz application.yaml. Konfigurasyon aslında çok basit. Custom components'ler (veya Custom Resource Definitions - CRD'lar) için apiVersion projenin kendi versiyonu olacaktır. 
+Argo CD konfigürasyonunu yazarak işe başlayabiliriz, dosya ismimiz application.yaml. Konfigurasyon aslında çok basit. Custom components'ler (veya Custom Resource Definitions - CRD'lar) için apiVersion projenin kendi versiyonu olacaktır.
 
 **Dikkat: Bu örnekte `argoproj.io/v1alpha1` olarak tanımlanan versiyon Argo CD projesinin yeni versiyonları çıktıkça değiştirilmelidir, bu yüzden bu örnek denendiği zaman bu alan kontrol edilip yenilenmelidir!**
 
 Versiyon kontrolü için [Declarative Setup](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/) bağlantısı altındaki *Applications* başlığının altındaki dosya örnek alınabilir.
 
-Dosyamızın ilk satırları aşağıdaki gibidir. Bu satırlar ile uygulamanın konponent'leri Argo CD uygulamasının çalıştığı namespace'in altında oluşturulmasını sağlayacaktır. 
+Dosyamızın ilk satırları aşağıdaki gibidir. Bu satırlar ile uygulamanın konponent'leri Argo CD uygulamasının çalıştığı namespace'in altında oluşturulmasını sağlayacaktır.
 
 <p align="center"><img src="images/Argo-CD/image-30.png"></p>
 
 Kodları yazmaya *spec* ile devam ediyoruz. spec altındaki *project* birden fazla uygulamayı gruplamamızı sağlamakta. Bu bizim için önemli değilse *default* yazıp devam edebiliriz. Eğer bu satırı hiç yazmaz, tanımlama yapmak isek o zaman da *default* olarak kabul edilecektir.
 
-Buradan sonra ise tüm Argo CD uygulamalarını oluştururken gerekli iki adıma geçiyoruz. İlk olarak; Argo CD'nin bağlanacağı ve senkronizasyon sağlayacağı Git repo'su, ikinci olarak ise Git repo'sunda bulduğu tanımlamaları uygulayacağı destination(K8s cluster) bilgisi. 
+Buradan sonra ise tüm Argo CD uygulamalarını oluştururken gerekli iki adıma geçiyoruz. İlk olarak; Argo CD'nin bağlanacağı ve senkronizasyon sağlayacağı Git repo'su, ikinci olarak ise Git repo'sunda bulduğu tanımlamaları uygulayacağı destination(K8s cluster) bilgisi.
 
 <p align="center"><img src="images/Argo-CD/image-31.png"></p>
 
 **Source**
+
 - *repoURL* ile Git repo'sunun bağlantısı tanımlanır.
 - *targetRevision: HEAD* tanımlaması ise Argo CD'nin her zaman son commit'i almasını sağlar.
-- *path: dev* ise repo içerisindeki senkronize etmek veya takip etmek istediğimiz spesifik bir path tanımlamamızı sağlar. Bizim örneğimizde bu *dev* klasörüdür. 
+- *path: dev* ise repo içerisindeki senkronize etmek veya takip etmek istediğimiz spesifik bir path tanımlamamızı sağlar. Bizim örneğimizde bu *dev* klasörüdür.
 
 **Destination**
+
 - *server* K8s cluster'ının kendi adresini tanımladığımız yer. `https://kubernetes.default.svc` adresi K8s API server'ın internal adresidir.
 
 <p align="center"><img src="images/Argo-CD/image-32.png"></p>
@@ -465,13 +449,13 @@ Daha önceden myapp isimli bir namespace tanımlaması yapmamıştık, bu durumd
 
 **Dikkat: Argo CD uygulaması bu dokümanda sürekli "Otomatik olarak Git repo'sunu dinler" olarak anlatılmış olsa da bu özelllik defaukt olarak kapalı gelmektedir, bunu şu şekilde açıyoruz:**
 
-*"automated"* başlığı altında iki ayarın tanımlaması yapılabilmektedir. *"selfHeal"* ile Argo CD uygulamasına uygulanan tüm manuel değişikliklerin geri alınması veya üzerinde yazılması sağlanmaktadır. Bu "*Single Source of Truth*"un gerçekleşmesini sağlayacaktır. Yani sadece repo'da yer alan bilgiler Argo CD için geçerli olacaktır, manuel değişiklikler kaldırılıp asıl hale dönülecektir. 
+*"automated"* başlığı altında iki ayarın tanımlaması yapılabilmektedir. *"selfHeal"* ile Argo CD uygulamasına uygulanan tüm manuel değişikliklerin geri alınması veya üzerinde yazılması sağlanmaktadır. Bu "*Single Source of Truth*"un gerçekleşmesini sağlayacaktır. Yani sadece repo'da yer alan bilgiler Argo CD için geçerli olacaktır, manuel değişiklikler kaldırılıp asıl hale dönülecektir.
 
 *automated* ile ayarlamasını yaptığımız Argo CD, her 3 dakikada bir Git repo'sunu kontrol edip eğer kendi anlık durumu ile farklılık varsa bu farklılıkları giderip kendini Git repo'sunda yer alan ayarlara göre yapılandıracaktır.
 
 <p align="center"><img src="images/Argo-CD/image-35.png"></p>
 
-*Not: Eğer 3 dakika beklemek yerine Argo CD'nin değişiklikten anında bilgilenmesini istiyorsak bunun için "Git webhook" kullanılabilir. *
+*Not: Eğer 3 dakika beklemek yerine Argo CD'nin değişiklikten anında bilgilenmesini istiyorsak bunun için "Git webhook" kullanılabilir.*
 
 Peki otomatik senkronizasyon, kendini iyileştirme, prune etme gibi özellikler neden kapalı gelmektedir?
 
@@ -513,7 +497,7 @@ Git repo'muzda yer alan *dev* klasörü altındaki *deployment.yaml*'da yapacağ
 
 Bu değişiklikten sonra Argo CD'nin bu değişikliği algılayıp deploy ettiğimiz uygulamayı değiştirmesi gerekiyor. Bunun için 3 dakika süre boyunca bekleyebiliriz veya Argo CD uygulama sayfasında yer alan "Sync" butonuna basarak senkronizasyonu kendi elimizle tetikleyebiliriz.
 
-Tetikleme sonrasında yeni bir *replica set (rs)* oluşturulacak ve buna bağlı iki yeni pod oluşacaktır. Bu yeni pod'lar Git repo'sundaki deployment.yaml ile ayarladığımız üzere scopeinfra/argocd-app Dcoker image'ının **1.2** versiyonu ile ayağa kalkacak olup eski image tag'ini kullanan diğer iki pod ise kaldırılacaktır (Kaldırılan pod'ların bağlı olduğu rs'in silinmediği gözlemlenmiştir, nedeni için araştırma yapılması ve onun da silinmesinin ayarlanması gerekmektedir). 
+Tetikleme sonrasında yeni bir *replica set (rs)* oluşturulacak ve buna bağlı iki yeni pod oluşacaktır. Bu yeni pod'lar Git repo'sundaki deployment.yaml ile ayarladığımız üzere scopeinfra/argocd-app Dcoker image'ının **1.2** versiyonu ile ayağa kalkacak olup eski image tag'ini kullanan diğer iki pod ise kaldırılacaktır (Kaldırılan pod'ların bağlı olduğu rs'in silinmediği gözlemlenmiştir, nedeni için araştırma yapılması ve onun da silinmesinin ayarlanması gerekmektedir).
 
 `kubectl edit deployment -n myapp myapp` komutu ile deployment bilgilerini düzenleyebilir, replica sayısını 2'den 4'e çıkarıp deneme yapabiliriz. Yaptığımız bu manuel değişiklik ise senkronizasyon sonucunda geri alıcak veya üzerinde yazılacak, replica sayısı tekrar 2 olacaktır.
 
@@ -521,12 +505,14 @@ Tetikleme sonrasında yeni bir *replica set (rs)* oluşturulacak ve buna bağlı
 
 ## Kurulum (Bulut)
 
-### Bu başlık altında K8s cluster'ına Argo CD'nin nasıl kurulacağı anlatılacaktır. Adımlar şu şekilde:
+### Bu başlık altında K8s cluster'ına Argo CD'nin nasıl kurulacağı anlatılacaktır. Adımlar şu şekilde
 
-### 1 - Rancher'a bağlanılıp sağ üstteki buton ile terminal çalıştırılır.
+### 1 - Rancher'a bağlanılıp sağ üstteki buton ile terminal çalıştırılır
+
 <p align="center"><img src="images/Argo-CD/image-44.png"></p>
 
-### 2 - `kubectl create namespace` ile yeni bir namespace oluşturulur.
+### 2 - `kubectl create namespace` ile yeni bir namespace oluşturulur
+
 <p align="center"><img src="images/Argo-CD/image-45.png"></p>
 
 Yeni namespace bir projeye dahil edilmek istenirse sol menüdeki *Cluster*'a, sonra *Projects/Namespaces*'a tıklanır. Sağ üstteki kutucuktan filtreleme yapılıp namespace bulunduktan sonra sağ tarafta yer alan 3 noktaya basılıp *Edit Config* butonuna tıklanır.
@@ -534,7 +520,7 @@ Yeni namespace bir projeye dahil edilmek istenirse sol menüdeki *Cluster*'a, so
 
 Daha sonra ise sağ üstteki *Projects* açılır menüsünden ilgili proje seçilir.
 
-### 3 - Oluşturulan namespace'e Argo CD kurulur.
+### 3 - Oluşturulan namespace'e Argo CD kurulur
 
 Sol menüdeki *Apps & Marketplace* altındaki *Charts* butonuna tıklanır ve açılan ekrandan sağ üstteki filtreleme kutusu ile argo cd filtrelenip çıkan kutucuğa tıklanır.
 <p align="center"><img src="images/Argo-CD/image-48.png"></p>
@@ -551,9 +537,9 @@ Kurulum başarı ile tamamlandığında terminalde şu şekilde çıktılar olu�
 
 Bu komutları kullanarak ileride uygulamamıza ve ilk şifremize erişeceğiz. O yüzden terminali kapatmamayı tercih etmelisiniz :)
 
-### 4 - Kurulan servisi dışarıdan erişilebilir hale getirilir.
+### 4 - Kurulan servisi dışarıdan erişilebilir hale getirilir
 
-`kubectl get all --namespace scope-argocd` komutu ile *scope-argocd* namespace'ine kurulan tüm uygulamalar sıralanır. Şu an bizim için önemli olan *service/* ile başlayanlar. 
+`kubectl get all --namespace scope-argocd` komutu ile *scope-argocd* namespace'ine kurulan tüm uygulamalar sıralanır. Şu an bizim için önemli olan *service/* ile başlayanlar.
 <p align="center"><img src="images/Argo-CD/image-51.png"></p>
 
 Buradan *service/argo-cd-server* satırı bulunur. Bu servisin tipi ClusterIP olarak gözükmektedir. Bunu **NodePort**'a çevireceğiz.
@@ -568,7 +554,7 @@ Artık servisimiz NodePort olarak gözükecektir:
 
 Yukarıdaki görselde de gözüktüğü üzere artık *Port(s)* kısmında servisin port'ları "80/TCP,443/TCP" olarak görünmeyip **"80:32057/TCP,443:30456/TCP"** olarak gözükmektedir. Bu da şu anlama gelmektedir: **Herhangi bir worker node'un IP'sini tarayıcımıza yazıp bu port ile bağlandığımızda Argo CD uygulamamızın UI'ına erişmiş olacağız**
 
-`kubectl get nodes -o wide` komutu ile node'larımızı listeliyoruz. 
+`kubectl get nodes -o wide` komutu ile node'larımızı listeliyoruz.
 <p align="center"><img src="images/Argo-CD/image-54.png"></p>
 
 Herhangi birinin *INTERNAL-IP* bilgisini alıp tarayıcımıza yazıyoruz ve yukarıdaki adımda oluşan iki yeni port'tan birini yazıyoruz, örneğin; **"10.13.224.1:30456"**
@@ -588,6 +574,7 @@ Bu şifreyi ekrana girip uygulamaya erişim sağlanabilinmektedir.
 ## Örnek Proje (Bulut)
 
 ### 1 - UI üzerinden yeni repo eklenir
+
 Ekranın sol tarafındaki *Ayarlar* butonuna tıklanıp *Repositories* menüsüne girilir.
 <p align="center"><img src="images/Argo-CD/image-57.png"></p>
 
@@ -596,4 +583,3 @@ Ekranın sol tarafındaki *Ayarlar* butonuna tıklanıp *Repositories* menüsün
 
 Açılan yeni ekrandan *Project* seçilir ve *Repository URL* kısmına Git repo'muzun bağlantısı yapıştırılıp üstteki *Connect* butonuna basılır ve yeni repo bağlantısı oluşturulmuş olunur.
 <p align="center"><img src="images/Argo-CD/image-59.png"></p>
-
