@@ -58,8 +58,6 @@ Jenkins Pipeline provides a set of tools that can be used for modeling delivery 
 
 Check out the [Best Jenkins Pipeline Tutorial For Beginners [Examples]](https://www.lambdatest.com/blog/jenkins-pipeline-tutorial/)
 
-<br>
-
 ## 2-TeamCity
 
 <p align="center"><img src="images/CI-toolsets/image-2.png"></p>
@@ -76,8 +74,6 @@ TeamCity is free to use for open-source projects and offers small teams an easy 
 - Integrates with Docker, Visual Studio Team Services, Maven, NuGet, and more.
 - Its on-premise variant integrates with popular cloud platforms like Google Cloud, AWS, VMWare vSphere, and more.
 - It provides powerful features that enable running history, viewing test progress (and history) reports on-the-fly, and adding builds to favorites.
-
-<br>
 
 ## 3-CircleCI
 
@@ -98,8 +94,6 @@ It supports languages that can be built on Windows, Linux, and macOS platforms. 
 - CircleCI Server, which is CircleCI’s on-premise offering, can be integrated with popular third-party tools like GitHub Enterprise, LambdaTest, Coveralls, and more.
 - CircleCI Server supports widely-used cloud platforms like AWS, Google Cloud, Azure, and more.
 - CircleCI Orbs, which are reusable snippets of code, help in automating repetitive processes and accelerating the integration with third-party tools.
-
-<br>
 
 ## 4-Travis CI
 
@@ -122,8 +116,6 @@ Written in the Ruby programming language, Travis CI is one of the best CI/CD too
 
 Comparing The Best CI/CD Tools: [CircleCI vs Travis CI](https://www.lambdatest.com/blog/circleci-vs-travis/)
 
-<br>
-
 ## 5-Bamboo
 
 <p align="center"><img src="images/CI-toolsets/image-5.png"></p>
@@ -140,8 +132,6 @@ It only works seamlessly with Jira but also works with popular SCM tools like Bi
 - It can realize parallel builds by executing builds on remote build agents. It can support up to 100 remote build agents and parallel test batches on the agents.
 - Bamboo is available in self-hosted and cloud-based variants.
 - Based on changes in the repository, Bamboo can trigger the builds, and you can subsequently send push-notifications from Bitbucket.
-
-<br>
 
 ## 6-GoCD
 
@@ -160,8 +150,6 @@ The provision to chain pipelines helps in reducing the interdependence between t
 - GoCD handles user authentication and user authorization.
 - It is one of the best CI/CD tools, as it can work with Windows, macOS, Docker, and more.
 - Like other CI/CD pipeline tools, it is easy to configure dependencies in GoCD. It also supports parallel execution, which is a must-have feature for DevOps testing.
-
-<br>
 
 ## 7-CodeShip
 
@@ -182,8 +170,6 @@ It follows a freemium pricing model where 100 builds per month are free for unli
 - You can debug the builds from the CI environment itself by using SSH
 - You can declare Caching per service, preventing the Docker image from building from scratch each time, thus speeding up the CI/CD process.
 - Multi-stage builds are suitable for the easy creation of builder workflows. It also aids in reducing the image size of the final Docker image.
-
-<br>
 
 ## 8-GitLab CI
 
@@ -208,8 +194,6 @@ See how to [Build An Automated Testing Pipeline With GitLab CI/CD & Selenium Gri
 
 This GitLab Tutorial for beginners and professionals will help you learn how to use GitLab, one of the most popular CI/CD tools used in DevOps.
 
-<br>
-
 ## 9-Jenkins X
 
 <p align="center"><img src="images/CI-toolsets/image-9.png"></p>
@@ -223,8 +207,6 @@ Though it is relatively new compared to Jenkins, it has still garnered interest 
 - Supports Automation using the pipeline.
 - The built-in GitOps methodology manages the environment. Hence, you can create different virtual environments for development, staging, production, etc. Each environment has its specific configuration and applications stored in the Git repository.
 - Jenkins X creates ‘Preview Environments’ for each pull-request. This helps the team in better collaboration and accelerating their software delivery, as they can have the opportunity to look at the effect of their changes before merging them in the repository.
-
-<br>
 
 ## 10-Shippable
 
@@ -243,8 +225,6 @@ The Shippable SaaS variant can be deployed on the public Cloud, whereas Shippabl
 - It integrates with a range of DevOps tools and repositories.
 - Its automation platform with Docker support simplifies provisioning, building, testing, and deploying any application anywhere.
 - Shippable, which is available in JFrog as [JFrog Pipelines](https://jfrog.com/pipelines/) accelerate features & product shipment, as it automates everything from CI, CD, infrastructure, and more. Pipelines are available for use in Shippable SaaS as well as Shippable Server.
-
-<br>
 
 ## 11-Buildkite
 
@@ -265,8 +245,6 @@ Organizations also have the option to run [open-source Buildkite](https://github
 - You can integrate with popular tools like HipChat, Slack, Campfire, and more.
 - Prioritized Support and private consultations (for Buildkite Enterprise customers) with guaranteed response times for high-priority issues.
 
-<br>
-
 ## 12-Concourse CI
 
 <p align="center"><img src="images/CI-toolsets/image-12.png"></p>
@@ -283,8 +261,6 @@ Built on the mechanics of tasks, jobs, and resources, it handles every task (in 
 - Every task runs in containers, which ensures a clean environment on every run.
 - Troubleshooting flaky builds in Concourse CI is super easy with the fly_intercept command that gives detailed insights into your build’s containers.
 - Concourse CI follows a simple plugin system with immense focus on the resource (or single strong abstraction) implemented by [resource_types](https://concourse-ci.org/resource-types.html).
-
-<br>
 
 ## 13-Codefresh
 
@@ -304,8 +280,6 @@ Its CLI called [‘Codefresh Runner’](https://codefresh.io/features/codefresh-
 - Along with integration with popular tools like GitHub, Bitbucket, GitLab, Slack, etc.; Codefresh can be integrated with Terraform, Pulumi, Puppet, and more.
 - In line with the best CI/CD tools, Codefresh also supports parallelism in build and testing. However, Codefresh is one of the selected CI/CD tools that provides built-in tools for debugging pipelines. This can be done by putting breakpoints in the CI/CD pipeline. Live debugging of the pipeline makes it easy to rectify pipeline issues and test the CI/CD pipeline after making necessary changes in the pipeline.
 
-<br>
-
 ## 14-Buddy
 
 <p align="center"><img src="images/CI-toolsets/image-14.png"></p>
@@ -323,8 +297,6 @@ Buddy also supports integration with popular cloud providers like AWS, Digital O
 - Pipeline setup in Buddy is easy, as the configuration can be done via the GUI. There is a facility for instantly exporting the pipeline configuration to a YAML file (for using Pipeline as Code).
 - It offers top-notch performance since dependencies, and Docker layers are cache in isolated containers.
 - Configuration can be done using the GUI and YAML files, making it easy for non-technical folks to create and manage pipelines.
-
-<br>
 
 ## 15-Buildbot
 
@@ -344,8 +316,6 @@ It can be used on popular platforms like Windows, Linux, macOS, etc. and integra
 - Buildbot can accelerate the build and testing process through distributed and parallel execution of jobs.
 - Advanced users of Buildbot can leverage its range of [customizations](http://docs.buildbot.net/current/manual/customization.html) for realizing customized build applications.
 
-<br>
-
 ## 16-Semaphore
 
 <p align="center"><img src="images/CI-toolsets/image-16.jpg"></p>
@@ -363,8 +333,6 @@ Using CI/CD pipelines offered by Semaphore, iOS developers can test and deploy t
 - With Semaphore, failures can be debugged in seconds by using its CLI for inspecting logs. SSH can also be used for getting insights into the running jobs.
 - The on-premise variant of Semaphore is under development and might release soon.
 
-<br>
-
 ## 17-Wercker
 
 <p align="center"><img src="images/CI-toolsets/image-17.jpg"></p>
@@ -381,8 +349,6 @@ Wercker can be integrated with Git and popular notification systems like HipChat
 - The SaaS offering from Wercker can be operated from the local machine using CLI from Wercker.
 - The Steps Marketplace consists of standard task templates that can fetch easily through the Steps Registry. This ensures that developers spend time on development activities that matter to the project.
 
-<br>
-
 ## 18-Integrity
 
 <p align="center"><img src="images/CI-toolsets/image-18.png"></p>
@@ -398,8 +364,6 @@ The only downside with this approach is that any change in the SCM repository re
 - It immediately generates reports and sends notifications to the user.
 - It is easy to install, as it is a command-line installation.
 
-<br>
-
 ## 19-Weave Flux
 
 <p align="center"><img src="images/CI-toolsets/image-19.png"></p>
@@ -414,8 +378,6 @@ Flux acts like an operator in a cluster for triggering deployments inside Kubern
 - Flux ensures that the new images and the config changes have propagated to the cluster.
 - It increases speed and reliability by providing version control for Kubernetes manifests and accordingly modifies them to include all the pushed image versions.
 
-<br>
-
 ## 20-Codemagic
 
 <p align="center"><img src="images/CI-toolsets/image-20.png"></p>
@@ -429,8 +391,6 @@ Codemagic was the first CI/CD tool designed specifically for Flutter. Now it als
 - Codemagic is a scalable CI/CD tool that provides 500 minutes of free build time. If your build minutes are exhausted, your builds will simply stop until the next month arrives and your 500 minutes are renewed.
 - It offers a solid Slack support channel where you can ask questions and get assistance. If your build fails, even if you are a free user, you can still ask questions and get help from the Codemagic team.
 - Codemagic has flexible pricing if you wish to upgrade your existing plan. Also, Codemagic has an updated tech stack.
-
-<br>
 
 ## 21-AutoRABIT
 
@@ -449,8 +409,6 @@ It delivers the fastest CI/CD solution for Salesforce and [Salesforce Testing](h
 - It enhances the Salesforce DX experience due to its friendly user-interface.
 - AutoRABIT works with effective version control systems. It fetches changes from the version control system, thereby synchronizing releases across geographically disparate sandboxes.
 
-<br>
-
 ## 22-CruiseControl
 
 <p align="center"><img src="images/CI-toolsets/image-22.png"></p>
@@ -467,8 +425,6 @@ It offers a simple and user-friendly interface that provides information about t
 - It supports several builders like Ant, Maven, NAnt, Phing, Rake, and Xcode.
 - It can be integrated with popular SCM tools like Git, SVN, ClearCase, Perforce, and more.
 
-<br>
-
 ## 23-Bitrise
 
 <p align="center"><img src="images/CI-toolsets/image-23.png"></p>
@@ -483,8 +439,6 @@ It can run builds on macOS and Linux machines. Bitrise supports major programmin
 - The [Bitrise CLI](https://app.bitrise.io/cli/) helps in running workflows from Bitrise from the local machine. A single terminal command can be used for automating the local development process.
 - Bitrise offers Bitrise Enterprise Build Platform (Bitrise EBP), a private cloud solution for enterprises looking for advanced security, flexibility, and high-availability in the CI/CD platform.
 - It allows [integrations with popular tools](https://www.bitrise.io/integrations/steps) for Access control (e.g. connect to OpenVPN Server, activate SSH key, etc.), Deployment (e.g. deploy to Amazon S3, sync Amazon S3 bucket, etc.), notifications (e.g. comment on GitHub pull request, Flowdock notification, etc.), code signing (e.g. certificate and profile installer, Android signing, etc.), and more.
-
-<br>
 
 ## 24-Drone CI
 
@@ -506,8 +460,6 @@ It offers Cloud (or Open Source) variant, free for use, and Drone Enterprise tha
 - Drone Cloud is entirely free for open-source projects.
 - Drone CI (Cloud and Enterprise) has a growing [plugin ecosystem](http://plugins.drone.io/) where you can find plugins for cloud integration, reporting, testing, notifications, and more.
 
-<br>
-
 ## 25-UrbanCode
 
 <p align="center"><img src="images/CI-toolsets/image-25.jpg"></p>
@@ -527,8 +479,6 @@ On the other hand, [UrbanCode Deploy](https://www.urbancode.com/product/deploy/)
 - It provides enterprise-level security and scalability.
 - UrbanCode provides project templates that make it easy to manage different configurations.
 
-<br>
-
 ## 26-Strider
 
 <p align="center"><img src="images/CI-toolsets/image-26.png"></p>
@@ -545,8 +495,6 @@ Extensions in Strider are npm packages containing additional metadata available 
 - It supports integration with version control tools (e.g., GitHub, GitHub Enterprise, Bitbucket, etc.).
 - It can be easily integrated with Heroku, making it easy to deploy the tested code to Heroku. Slack can be leveraged for receiving notifications.
 
-<br>
-
 ## 27-FinalBuilder
 
 <p align="center"><img src="images/CI-toolsets/image-27.png"></p>
@@ -562,8 +510,6 @@ The scripts created using the graphical interface can be scheduled using a Windo
 - FinalBuilder provides an extensive library of 600+ pre-written scripts, which are called actions. It can be integrated with popular version control systems, testing tools, as well as compilers.
 - Its tight integration with the Windows Scheduling Service lets you schedule builds on a need basis.
 
-<br>
-
 ## 28-GitHub Actions
 
 <p align="center"><img src="images/CI-toolsets/image-28.png"></p>
@@ -577,8 +523,6 @@ Introduced in 2018, [GitHub Actions](https://github.com/features/actions) is a c
 - You can perform multi-container testing by adding support for Docker.
 - You can choose from multiple CI templates or even create your own.
 - Include 2000 free build minutes/month for all your private repositories.
-
-<br>
 
 ## 29-Azure DevOps
 
@@ -594,8 +538,6 @@ Introduced in 2018, [GitHub Actions](https://github.com/features/actions) is a c
 - The application can be deployed to different environments such as Virtual Machines or Containers.
 
 Start running your Selenium tests in Azure DevOps pipeline.
-<br>
-
 ## 30-Terraform
 
 <p align="center"><img src="images/CI-toolsets/image-30.png"></p>
@@ -613,8 +555,6 @@ Start running your Selenium tests in Azure DevOps pipeline.
 - State management.
 - Terraform Registry with 500+ providers.
 
-<br>
-
 ## 31-Tekton
 
 <p align="center"><img src="images/CI-toolsets/image-31.png"></p>
@@ -627,8 +567,6 @@ Start running your Selenium tests in Azure DevOps pipeline.
 - Built-in best practices for Kubernetes
 - Run on hybrid or multi-cloud
 - Get maximum flexibility
-
-<br>
 
 ## 32-Spacelift
 
